@@ -1,0 +1,597 @@
+==================================================
+             GIT / GITHUB WORKFLOW
+==================================================
+
+
+ОСНОВНИ ПОНЯТИЯ:
+
+MAIN
+----
+Главният branch на проекта.
+Това е стабилният код, който трябва да работи.
+
+Пример:
+
+main
+ |
+ ├── App.tsx
+ ├── Navbar.tsx
+ └── package.json
+
+
+BRANCH
+------
+Отделно копие на проекта, където работиш безопасно.
+
+Пример:
+
+main
+ |
+ └── feature/profile-page
+          |
+          └── Profile.tsx
+
+
+Не работиш директно в main.
+Всеки feature или поправка има собствен branch.
+
+
+COMMIT
+------
+Записана версия на твоите промени.
+
+Пример:
+
+git commit -m "Add profile page"
+
+Означава:
+
+"Запази тази версия и я добави към историята."
+
+
+PUSH
+----
+Качва твоя код от компютъра към GitHub.
+
+Пример:
+
+git push origin feature/profile-page
+
+
+PULL
+----
+Сваля последните промени от GitHub към твоя компютър.
+
+Пример:
+
+git pull
+
+
+PULL REQUEST (PR)
+-----------------
+Молба:
+
+"Вземи моя branch и го добави към main."
+
+Изглежда така:
+
+feature/profile-page
+
+        ↓
+
+main
+
+
+MERGE
+-----
+Сливане на branch-а в main.
+
+След merge:
+
+main
+
+├── App.tsx
+├── Navbar.tsx
+└── Profile.tsx
+
+
+
+==================================================
+              REAL WORKFLOW
+==================================================
+
+
+1. Отивам на main
+
+git checkout main
+
+
+Означава:
+
+"Премести ме на главния branch."
+
+
+Проверка:
+
+git branch
+
+
+Пример:
+
+* main
+  feature/login
+  feature/navbar
+
+
+
+--------------------------------------------------
+
+
+2. Свалям последните промени
+
+git pull
+
+
+Означава:
+
+"Вземи най-новия код от GitHub."
+
+
+Пример:
+
+GitHub:
+
+main
+ |
+ Footer.tsx (нов)
+
+
+След git pull:
+
+Твоят компютър:
+
+main
+ |
+ Footer.tsx
+
+
+
+--------------------------------------------------
+
+
+3. Създавам мой branch
+
+git checkout -b feature/profile-page
+
+
+Прави две неща:
+
+1. Създава:
+
+feature/profile-page
+
+
+2. Премества те там.
+
+
+Преди:
+
+main
+
+
+След:
+
+main
+ |
+ └── feature/profile-page  <-- ти си тук
+
+
+
+--------------------------------------------------
+
+
+4. Работя по кода
+
+
+Пример:
+
+Създаваш:
+
+src/pages/Profile.tsx
+
+
+Добавяш:
+
+- Profile component
+- Routes
+- CSS
+- API calls
+
+
+
+--------------------------------------------------
+
+
+5. Проверявам промените
+
+git status
+
+
+Показва:
+
+Modified:
+Profile.tsx
+
+Untracked:
+new-file.tsx
+
+
+
+--------------------------------------------------
+
+
+6. Добавям промените
+
+git add .
+
+
+Означава:
+
+"Подготви всички промени за commit."
+
+
+Преди:
+
+Работен код
+
+
+След:
+
+Staging area
+
+
+Кодът е готов за запис.
+
+
+
+--------------------------------------------------
+
+
+7. Запазвам версия
+
+git commit -m "Add profile page"
+
+
+Прави снимка на текущото състояние.
+
+
+Пример:
+
+Commit 1:
+Created project
+
+Commit 2:
+Added authentication
+
+Commit 3:
+Added profile page
+
+
+
+--------------------------------------------------
+
+
+8. Качвам branch-а в GitHub
+
+git push origin feature/profile-page
+
+
+Разделяне:
+
+git push
+=
+качване
+
+
+origin
+=
+GitHub repository-то
+
+
+feature/profile-page
+=
+кой branch качваш
+
+
+
+След това:
+
+GitHub:
+
+main
+
+feature/profile-page
+        |
+        Profile.tsx
+
+
+
+--------------------------------------------------
+
+
+9. Правя Pull Request
+
+
+В GitHub:
+
+Pull Requests
+        ↓
+New Pull Request
+
+
+Избираш:
+
+FROM:
+
+feature/profile-page
+
+
+TO:
+
+main
+
+
+Тоест:
+
+"Искам моите промени да влязат в main."
+
+
+
+--------------------------------------------------
+
+
+10. Merge
+
+
+След одобрение:
+
+Merge Pull Request
+
+
+Получаваш:
+
+
+main
+
+├── App.tsx
+├── Navbar.tsx
+└── Profile.tsx
+
+
+
+==================================================
+          НАЙ-ВАЖНИТЕ GIT COMMANDS
+==================================================
+
+
+Виж branch-ове:
+
+git branch
+
+
+Смяна на branch:
+
+git checkout branch-name
+
+
+Създаване на branch:
+
+git checkout -b branch-name
+
+
+Проверка:
+
+git status
+
+
+Добавяне на промени:
+
+git add .
+
+
+Commit:
+
+git commit -m "message"
+
+
+Сваляне на код:
+
+git pull
+
+
+Качване:
+
+git push
+
+
+
+==================================================
+             GITHUB DESKTOP WORKFLOW
+==================================================
+
+
+1. Open GitHub Desktop
+
+
+2. Current Branch:
+
+main
+
+
+3. Pull latest code:
+
+Fetch origin
+или
+Pull origin
+
+
+
+4. Създаване на branch:
+
+Current Branch
+        ↓
+New Branch
+
+Име:
+
+feature/profile-page
+
+
+
+5. Работиш във VS Code
+
+
+
+6. Връщаш се в GitHub Desktop
+
+
+Виждаш:
+
+Changes:
+
+Profile.tsx
+App.tsx
+
+
+
+Пишеш:
+
+Summary:
+
+Add profile page
+
+
+Натискаш:
+
+Commit to feature/profile-page
+
+
+
+7. Натискаш:
+
+Push origin
+
+
+
+8. Create Pull Request
+
+
+
+==================================================
+             РЕАЛЕН ЕКИПЕН WORKFLOW
+==================================================
+
+
+Developer 1:
+
+feature/frontend-navbar
+
+
+Developer 2:
+
+feature/backend-api
+
+
+Developer 3:
+
+feature/profile-page
+
+
+
+Всички работят отделно:
+
+
+feature/navbar
+        |
+        |
+feature/api
+        |
+        |
+feature/profile
+
+
+Всички правят:
+
+Pull Request
+
+
+↓
+
+main
+
+
+↓
+
+Merge
+
+
+
+==================================================
+                 ЗАПОМНИ:
+==================================================
+
+
+MAIN
+=
+официалният код
+
+
+BRANCH
+=
+твоята работна зона
+
+
+COMMIT
+=
+запазена версия
+
+
+PUSH
+=
+качвам в GitHub
+
+
+PULL
+=
+вземам нов код
+
+
+PULL REQUEST
+=
+искам моят код да бъде добавен
+
+
+MERGE
+=
+сливам в main
+
+
+ПРАВИЛО:
+
+Никога не работи директно в main.
+
+Винаги:
+
+main
+ ↓
+създай branch
+ ↓
+работи
+ ↓
+commit
+ ↓
+push
+ ↓
+pull request
+ ↓
+merge
