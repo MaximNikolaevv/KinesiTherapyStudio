@@ -1,0 +1,1034 @@
+:root {
+    --color-bg: #FFFFFF;
+    --color-ink: #1F1B18;
+    --color-ink-soft: #5C5450;
+    --color-accent: #B5651D;
+    /* оранжево-кафяв акцент */
+    --color-accent-dark: #8F4E15;
+    /* по-тъмен вариант за hover */
+    --color-line: rgba(31, 27, 24, 0.1);
+
+    --font-display: "Fraunces", serif;
+    --font-body: "Inter", sans-serif;
+
+    --nav-height: 84px;
+    --max-width: 1200px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+
+
+}
+
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 200;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.nav-toggle:hover span {
+    background: var(--color-accent);
+}
+
+/* при отворено меню — превръща се в "Х" */
+.nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+
+.main-nav__list {
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 32px;
+    padding: 20px 20px;
+
+
+}
+
+.main-nav__link {
+    position: relative;
+    font-size: 1.32rem;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 2px;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.main-nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus-visible {
+    color: var(--color-ink);
+}
+
+.main-nav__link:hover::after,
+.main-nav__link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.main-nav__link.is-current {
+    color: var(--color-accent);
+}
+
+.main-nav__link.is-current::after {
+    transform: scaleX(1);
+}
+
+
+.main-nav__cta {
+    margin-left: auto;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+}
+
+.button--primary {
+    background: var(--color-accent);
+    color: #ffffff;
+
+}
+
+.button.button--primary.motivation-cta {
+    width: 420px
+}
+
+.button--primary:hover {
+    background: var(--color-accent-dark);
+}
+
+.button--primary:active {
+    transform: scale(0.97);
+}
+
+.button .button--primary {
+
+    align-items: center;
+}
+
+.main-nav__cta::after {
+    content: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
+
+.motivation-box {
+    margin-bottom: 80px;
+    padding: 120px 32px;
+    background: linear-gradient(180deg, #FFF8F2 0%, #FFFFFF 100%);
+    text-align: center;
+}
+
+.motivation-box-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.motivation-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 16px;
+}
+
+.motivation-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    letter-spacing: -0.01em;
+}
+
+.motivation-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 560px;
+    margin: 0 0 40px;
+}
+
+.motivation-cta {
+    font-size: 1rem;
+    padding: 16px 36px;
+}
+
+
+
+
+.about-section {
+    padding: 100px 32px;
+    background: var(--color-bg);
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.about-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.about-eyebrow {
+    font-family: var(--font-body);
+    font-size: 2.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 12px;
+}
+
+.about-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.5rem, 3vw, 2.0rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 auto 12px;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+}
+
+.team-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 28px;
+    background: #FAF7F4;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    height: 600px;
+    width: 450px;
+}
+
+.team-photo {
+    flex-shrink: 0;
+    width: 420px;
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    align-self: center;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+}
+
+.team-name {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 4px;
+}
+
+.team-role {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 12px;
+}
+
+.team-bio {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0;
+}
+
+
+.process-section {
+    padding: 100px 32px;
+    background: var(--color-bg);
+    display: flex;
+}
+
+.process-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.process-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 12px;
+}
+
+.process-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+}
+
+.process-intro {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 560px;
+    margin: 0 0 56px;
+}
+
+/* ============================================
+   Steps list
+   ============================================ */
+.process-steps {
+    list-style: none;
+    margin: 0 0 56px;
+    padding: 0;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+}
+
+.process-step {
+    counter-increment: step;
+    position: relative;
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.process-step:first-child {
+    padding-top: 0;
+}
+
+.process-step:last-child {
+    border-bottom: none;
+}
+
+/* номерът на стъпката, генериран автоматично */
+.process-step::before {
+    content: counter(step, decimal-leading-zero);
+    flex-shrink: 0;
+    width: 56px;
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.process-step-content h3 {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 8px;
+}
+
+.process-step-content p {
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 0;
+    max-width: 520px;
+}
+
+/* лека анимация при hover, за живост на стъпката */
+.process-step {
+    transition: padding-left 0.25s ease;
+}
+
+.process-step:hover {
+    padding-left: 8px;
+}
+
+.process-step:hover::before {
+    color: var(--color-accent-dark);
+}
+
+/* ============================================
+   "Провери моята мобилност" — пулсиращ бутон
+   ============================================ */
+#showCalculatorBtn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#showCalculatorBtn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--color-accent);
+    opacity: 0.55;
+    animation: pulse-ring 2.2s ease-out infinite;
+    z-index: -1;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 0.55;
+    }
+
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+#showCalculatorBtn:hover {
+    background: var(--color-accent-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #showCalculatorBtn::before {
+        animation: none;
+    }
+
+    .process-step {
+        transition: none;
+    }
+}
+
+/* ============================================
+   Calculator box
+   ============================================ */
+.calculator-box {
+    margin-top: 40px;
+    padding: 36px;
+    background: #FAF7F4;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    max-width: 560px;
+}
+
+.calculator-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 10px;
+}
+
+.calculator-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 12px;
+}
+
+.calculator-intro {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calculator-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.calculator-field label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-ink);
+}
+
+.calculator-field input,
+.calculator-field select {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-line);
+    background: #FFFFFF;
+    color: var(--color-ink);
+}
+
+.calculator-field input:focus,
+.calculator-field select:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+}
+
+.calculator-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.btn-primary.calculator-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+}
+
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+    display: flex;
+    background: #1F1B18;
+    color: #E8E3DE;
+    padding: 50px 50px;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+}
+
+.footer-heading {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin: 0 0 20px;
+}
+
+/* Контакти и работно време — базови списъци */
+.footer-contact,
+.footer-hours {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-contact ul,
+.footer-hours ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.footer-contact a {
+    color: #C9C2BB;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--color-accent);
+}
+
+
+
+
+
+@media (max-width: 960px) {
+
+    .main-nav__list {
+        gap: 20px;
+        padding: 16px 12px;
+    }
+
+    .main-nav__link {
+        font-size: 1.05rem;
+    }
+
+    .button--primary {
+        width: auto;
+        /* оправя фиксирания width: 400px, който чупи мобилно */
+    }
+
+    .team-grid {
+        gap: 40px;
+    }
+
+    .team-card {
+        width: 380px;
+        height: auto;
+    }
+
+    .team-photo {
+        width: 300px;
+        height: 300px;
+    }
+
+    .process-section {
+        padding: 80px 24px;
+    }
+}
+
+
+/* ================================================================
+   RESPONSIVE — Mobile (≤ 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .header__container {
+        padding: 16px 24px;
+    }
+
+    .main-nav__list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-line);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .main-nav__list.is-open {
+        display: flex;
+        max-height: 400px;
+        opacity: 1;
+        padding: 12px 24px 20px;
+    }
+
+    .button .button--primary {
+        width: 330px;
+    }
+
+    .header {
+        position: relative;
+    }
+
+    .main-nav__link {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--color-line);
+        text-align: left;
+    }
+
+    .main-nav__link::after {
+        display: none;
+        /* подчертаването отдолу не пасва добре в стек-меню */
+    }
+
+    /* Motivation box */
+    .motivation-box {
+        padding: 72px 20px;
+        margin-bottom: 48px;
+    }
+
+    .motivation-title {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+    }
+
+    .motivation-text {
+        font-size: 0.95rem;
+    }
+
+    .button--primary {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* About section */
+    .about-section {
+        padding: 64px 20px;
+    }
+
+    .about-eyebrow {
+        font-size: 1.6rem;
+    }
+
+    .about-title {
+        font-size: 1.4rem;
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .team-photo {
+        width: 100%;
+        height: 260px;
+    }
+
+    /* Process section */
+    .process-section {
+        padding: 64px 20px;
+    }
+
+    .process-step {
+        gap: 16px;
+        padding: 20px 0;
+    }
+
+    .process-step::before {
+        width: 40px;
+        font-size: 1.15rem;
+    }
+
+    .process-title {
+        font-size: 1.7rem;
+    }
+
+    .calculator-box {
+        max-width: 100%;
+        padding: 24px;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 40px 20px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 28px
+    }
+
+    .footer-contact {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-hours {
+        margin-left: 20px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+
+/* ================================================================
+   RESPONSIVE — Mobile small (≤ 480px)
+   ================================================================ */
+
+@media (max-width: 480px) {
+
+    /* Header / navigation */
+    .header__container {
+        padding: 12px 16px;
+    }
+
+    .nav-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-nav__list.is-open {
+        padding: 10px 16px 16px;
+    }
+
+    .button.button--primary.motivation-cta {
+        width: 220px
+    }
+
+    .main-nav__link {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+
+    /* Motivation box */
+    .motivation-box {
+        padding: 56px 16px;
+        margin-bottom: 40px;
+    }
+
+    .motivation-eyebrow {
+        font-size: 0.78rem;
+    }
+
+    .motivation-title {
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+
+    .motivation-text {
+        font-size: 0.9rem;
+        margin-bottom: 28px;
+    }
+
+    .button--primary {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* About section */
+    .about-section {
+        padding: 48px 16px;
+    }
+
+    .about-eyebrow {
+        font-size: 1.3rem;
+    }
+
+    .about-title {
+        font-size: 1.2rem;
+    }
+
+    .team-grid {
+        gap: 24px;
+    }
+
+    .team-card {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    .team-photo {
+        height: 220px;
+    }
+
+    .team-name {
+        font-size: 1.1rem;
+    }
+
+    .team-role {
+        font-size: 0.8rem;
+    }
+
+    .team-bio {
+        font-size: 0.88rem;
+    }
+
+    /* Process section */
+    .process-section {
+        padding: 48px 16px;
+    }
+
+    .process-title {
+        font-size: 1.4rem;
+    }
+
+    .process-intro {
+        font-size: 0.92rem;
+        margin-bottom: 36px;
+    }
+
+    .process-step {
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .process-step::before {
+        width: 32px;
+        font-size: 1rem;
+    }
+
+    .process-step-content h3 {
+        font-size: 1rem;
+    }
+
+    .process-step-content p {
+        font-size: 0.88rem;
+    }
+
+    #showCalculatorBtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .calculator-box {
+        padding: 16px;
+        margin-top: 28px;
+    }
+
+    .calculator-title {
+        font-size: 1.15rem;
+    }
+
+    .calculator-field input,
+    .calculator-field select {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .calculator-btn {
+        width: 100%;
+    }
+
+    /* Footer — задължително стек вертикално под 480px, а не row */
+    .site-footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 32px 16px;
+        gap: 24px;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-hours {
+        margin-left: 0;
+    }
+
+    .footer-heading {
+        font-size: 0.98rem;
+        margin-bottom: 12px;
+    }
+
+    .footer-contact a {
+        font-size: 0.88rem;
+    }
+}
