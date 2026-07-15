@@ -1,0 +1,27 @@
+{
+  "name": "kinesitherapy---studio",
+  "version": "1.0.0",
+  "description": "A full-stack web application for a kinesitherapist studio, built with HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB. The platform allows users to explore services, book appointments, manage their profiles, and provides an admin panel for appointment and client management.",
+  "homepage": "https://github.com/MaximNikolaevv/KinesiTherapyStudio#readme",
+  "bugs": {
+    "url": "https://github.com/MaximNikolaevv/KinesiTherapyStudio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximNikolaevv/KinesiTherapyStudio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node backend-part/server.js",
+    "start": "node backend-part/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "lit-html": "^3.3.3",
+    "page": "^1.11.6"
+  }
+}
