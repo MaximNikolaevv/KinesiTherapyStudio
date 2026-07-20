@@ -10,6 +10,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
 app.use("/img", express.static(path.join(projectRoot, "img")));
+app.use("/model", express.static(path.join(projectRoot, "model")));
 app.use("/node_modules", express.static(path.join(projectRoot, "node_modules")));
 app.use(express.static(path.join(projectRoot, "frontend-part")));
 
