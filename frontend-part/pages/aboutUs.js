@@ -51,7 +51,7 @@ let DashboardTemplate = () => html`
                     <li><a href="/uslugi" class="main-nav__link">Услуги</a></li>
                     <li><a href="/kak-rabotim" class="main-nav__link">Как работим</a></li>
                     <li><a href="/otzivi" class="main-nav__link">Отзиви</a></li>
-                    <li><a href="/kontakti" class="main-nav__link">Контакти</a></li>
+                    <li><a href="/ContactUs" class="main-nav__link">Контакти</a></li>
                 </ul>
             </nav>
 

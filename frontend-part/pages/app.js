@@ -2,6 +2,9 @@ import page from '../../node_modules/page/page.mjs';
 import { render } from '../../node_modules/lit-html/lit-html.js';
 import { HomePage } from './HomePage.js';
 import { AboutUs } from './aboutUs.js';
+import { ContactUs } from './ContactUs.js';
+
+
 
 const Main = document.querySelector("main");
 Main.id = "root";
@@ -24,5 +27,7 @@ function renderer(template, root) {
 page(UpdateCTX);
 page("/", HomePage);
 page("/aboutUs", AboutUs);
+page("/contactUs", ContactUs);
+
 
 page.start();
