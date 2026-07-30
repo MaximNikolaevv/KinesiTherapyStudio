@@ -114,10 +114,42 @@ let DashboardTemplate = () => html`
             <div id="threeDContainer"></div>
             </main>
             
-            </section>`;
+            </section>
+
+            <footer class="site-footer">
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Контакти:</h3>
+                    <ul>
+                        <li><a href="tel:+359899942522">+359899942522</a></li>
+                        <li><a href="tel:+359878886816">+359878886816</a></li>
+                        <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">ул. „Здраве" 12, София</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-hours">
+                    <h3 class="footer-heading">Работно време</h3>
+                    <p class="footer-hours-text">
+                        Понеделник – Неделя<br>
+                        10:00 – 20:00
+                    </p>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; <span id="footerYear"></span> КинезиЦентър. Всички права запазени.</p>
+                    <ul>
+                        <li><a href="/uslovia">Условия за ползване</a></li>
+                        <li><a href="/poveritelnost">Поверителност</a></li>
+                    </ul>
+                </div>
+            </footer>`;
 
 export function AboutUs(ctx) {
     ctx.render(DashboardTemplate());
+
+    const footerYear = document.getElementById("footerYear");
+    if (footerYear) {
+        footerYear.textContent = new Date().getFullYear();
+    }
 
     const container = document.getElementById("threeDContainer");
 

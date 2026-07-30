@@ -1,0 +1,382 @@
+.about-section {
+    padding: 100px 32px;
+    background: var(--color-bg);
+}
+
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.about-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.about-eyebrow {
+    font-family: var(--font-body);
+    font-size: 2.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 12px;
+}
+
+.about-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.5rem, 3vw, 2.0rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 auto 12px;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+}
+
+.team-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 28px;
+    background: #FAF7F4;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    height: 600px;
+    width: 450px;
+}
+
+.team-photo {
+    flex-shrink: 0;
+    width: 420px;
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    align-self: center;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+}
+
+.team-name {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 4px;
+}
+
+.team-role {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 12px;
+}
+
+.team-bio {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0;
+}
+
+.about-3d {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-3d-intro {
+    max-width: 920px;
+    margin: 7rem auto 1.5rem;
+    text-align: center;
+}
+
+.title-3d-description {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 0.9rem;
+}
+
+.about-3d-description {
+    margin: 0;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+}
+
+#threeDContainer {
+    width: 900px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffd9bf;
+    border: 1px solid rgb(206, 191, 184);
+}
+
+.site-footer {
+    display: flex;
+    background: #1F1B18;
+    color: #E8E3DE;
+    padding: 50px 50px;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+}
+
+.footer-heading {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin: 0 0 20px;
+}
+
+.footer-contact,
+.footer-hours {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-contact ul,
+.footer-hours ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.footer-contact a {
+    color: #C9C2BB;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--color-accent);
+}
+
+.footer-hours-text {
+    margin: 0;
+    line-height: 1.7;
+    color: #C9C2BB;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1 1 100%;
+    min-width: 220px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #C9C2BB;
+}
+
+.footer-bottom ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-bottom a {
+    color: #C9C2BB;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+    color: var(--color-accent);
+}
+
+@media (max-width: 960px) {
+    .team-grid {
+        gap: 40px;
+    }
+
+    .team-card {
+        width: 380px;
+        height: auto;
+    }
+
+    .team-photo {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    #threeDContainer {
+        height: 380px;
+    }
+
+    .about-section {
+        padding: 64px 20px;
+    }
+
+    .about-eyebrow {
+        font-size: 1.6rem;
+    }
+
+    .about-title {
+        font-size: 1.4rem;
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .team-photo {
+        width: 100%;
+        height: 260px;
+    }
+
+    .site-footer {
+        padding: 40px 20px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .footer-contact {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-hours {
+        margin-left: 20px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-3d {
+        margin-top: 3rem;
+    }
+
+    #threeDContainer {
+        width: 100%;
+        height: 280px;
+        border-radius: 12px;
+    }
+
+    .about-section {
+        padding: 48px 16px;
+    }
+
+    .about-eyebrow {
+        font-size: 1.3rem;
+    }
+
+    .about-title {
+        font-size: 1.2rem;
+    }
+
+    .team-grid {
+        gap: 24px;
+    }
+
+    .team-card {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    .team-photo {
+        height: 220px;
+    }
+
+    .team-name {
+        font-size: 1.1rem;
+    }
+
+    .team-role {
+        font-size: 0.8rem;
+    }
+
+    .team-bio {
+        font-size: 0.88rem;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 32px 16px;
+        gap: 24px;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-hours {
+        margin-left: 0;
+    }
+
+    .footer-heading {
+        font-size: 0.98rem;
+        margin-bottom: 12px;
+    }
+
+    .footer-contact a {
+        font-size: 0.88rem;
+    }
+}
