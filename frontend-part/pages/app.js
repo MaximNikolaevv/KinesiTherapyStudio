@@ -3,6 +3,7 @@ import { render } from '../../node_modules/lit-html/lit-html.js';
 import { HomePage } from './HomePage.js';
 import { AboutUs } from './aboutUs.js';
 import { ContactUs } from './ContactUs.js';
+import { HowWeWork } from './HowWeWork.js';
 
 
 
@@ -28,6 +29,7 @@ page(UpdateCTX);
 page("/", HomePage);
 page("/aboutUs", AboutUs);
 page("/contactUs", ContactUs);
+page("/kak-rabotim", HowWeWork);
 
 
 page.start();

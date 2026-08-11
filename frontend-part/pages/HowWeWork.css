@@ -1,0 +1,592 @@
+:root {
+    --color-bg: #FFFFFF;
+    --color-ink: #1F1B18;
+    --color-ink-soft: #5C5450;
+    --color-accent: #B5651D;
+    --color-accent-dark: #8F4E15;
+    --color-line: rgba(31, 27, 24, 0.1);
+
+    --font-display: "Fraunces", serif;
+    --font-body: "Inter", sans-serif;
+
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+}
+
+.button--primary {
+    background: var(--color-accent);
+    color: #ffffff;
+}
+
+.button--primary:hover {
+    background: var(--color-accent-dark);
+    text-decoration: none;
+}
+
+.button--primary:active {
+    transform: scale(0.97);
+}
+
+.button--primary:disabled {
+    background: #C9BEB3;
+    cursor: not-allowed;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* ============================================
+   "Как работим" — процес
+   ============================================ */
+.process-section {
+    padding: 100px 32px;
+    background: var(--color-bg);
+}
+
+.process-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.process-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 14px;
+}
+
+.process-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 22px;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+}
+
+.process-intro {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 560px;
+    margin: 0 0 56px;
+}
+
+.process-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.process-step {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-line);
+    transition: padding-left 0.25s ease;
+}
+
+.process-step:first-child {
+    padding-top: 0;
+}
+
+.process-step:last-child {
+    border-bottom: none;
+}
+
+.process-step:hover {
+    padding-left: 8px;
+}
+
+.process-step-number {
+    flex-shrink: 0;
+    width: 48px;
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.process-step:hover .process-step-number {
+    color: var(--color-accent-dark);
+}
+
+.process-step-content h3 {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 6px;
+}
+
+.process-step-content p {
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 0;
+    max-width: 520px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-step {
+        transition: none;
+    }
+}
+
+/* ============================================
+   Проверка на стойката
+   ============================================ */
+.posture-section {
+    padding: 90px 32px 110px;
+    background: #FAF7F4;
+    border-top: 1px solid var(--color-line);
+}
+
+.posture-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.posture-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 14px;
+}
+
+.posture-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 16px;
+    max-width: 640px;
+}
+
+.posture-intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 620px;
+    margin: 0 0 48px;
+}
+
+.posture-demo {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Видео рамка */
+.posture-video-frame {
+    position: relative;
+    flex: 1.3;
+    aspect-ratio: 4 / 3;
+    background: #1F1B18;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.posture-video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    background: #1F1B18;
+    transform: scaleX(-1);
+}
+
+/* Панел вдясно */
+.posture-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.posture-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+}
+
+.posture-status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #C9BEB3;
+    flex-shrink: 0;
+}
+
+.posture-status.is-live .posture-status-dot {
+    background: #4A8F5C;
+    box-shadow: 0 0 0 4px rgba(74, 143, 92, 0.15);
+}
+
+.posture-status.is-live {
+    color: #2F5B3A;
+}
+
+.posture-checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.posture-checklist li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 0.92rem;
+    color: var(--color-ink-soft);
+}
+
+.posture-checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-line);
+    background: #FFFFFF;
+}
+
+.posture-checklist li.is-ok::before {
+    border-color: #4A8F5C;
+    background: #4A8F5C;
+}
+
+.posture-checklist li.is-warning::before {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+}
+
+.posture-start-btn {
+    align-self: flex-start;
+}
+
+.posture-disclaimer {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #8A8580;
+    margin: 0;
+}
+
+
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 860px) {
+
+    .posture-demo {
+        flex-direction: column;
+    }
+
+    .posture-video-frame {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .posture-panel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .process-section {
+        padding: 64px 20px;
+    }
+
+    .process-title {
+        font-size: 1.7rem;
+    }
+
+    .process-step {
+        gap: 16px;
+        padding: 20px 0;
+    }
+
+    .process-step-number {
+        width: 36px;
+        font-size: 1.1rem;
+    }
+
+    .posture-section {
+        padding: 56px 20px 72px;
+    }
+
+    .posture-start-btn {
+        width: 100%;
+    }
+}
+
+
+/* ============================================
+   Posture notification modal
+   ============================================ */
+.posture-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 27, 24, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.posture-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.posture-modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 20px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px 32px 32px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(31, 27, 24, 0.25);
+    transform: scale(0.92) translateY(10px);
+    transition: transform 0.25s ease;
+}
+
+.posture-modal.is-open .posture-modal-box {
+    transform: scale(1) translateY(0);
+}
+
+.posture-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #F6F4EF;
+    color: var(--color-ink-soft);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.posture-modal-close:hover {
+    background: var(--color-line);
+    color: var(--color-ink);
+}
+
+.posture-modal-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+/* Добро състояние — зелено */
+.posture-modal-box.is-good .posture-modal-icon {
+    background: rgba(74, 143, 92, 0.12);
+    color: #4A8F5C;
+}
+
+.posture-modal-box.is-good .posture-modal-title {
+    color: #2F5B3A;
+}
+
+/* Лошо състояние — акцентно оранжево-кафяво (внимание, не тревога) */
+.posture-modal-box.is-bad .posture-modal-icon {
+    background: rgba(181, 101, 29, 0.12);
+    color: var(--color-accent);
+}
+
+.posture-modal-box.is-bad .posture-modal-title {
+    color: var(--color-accent-dark);
+}
+
+.posture-modal-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 12px;
+}
+
+.posture-modal-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0;
+}
+
+.posture-modal-tips {
+    text-align: left;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.posture-modal-tips li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+}
+
+.posture-modal-tips li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.posture-camera-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.posture-camera-hint {
+    margin: 0;
+    max-width: 280px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+}
+
+.posture-start-btn {
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .posture-camera-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .posture-start-btn {
+        width: 100%;
+    }
+
+    .posture-camera-hint {
+        max-width: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .posture-camera-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .posture-start-btn {
+        width: 100%;
+    }
+
+    .posture-camera-hint {
+        max-width: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .posture-modal,
+    .posture-modal-box {
+        transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .posture-modal-box {
+        padding: 32px 24px 24px;
+    }
+
+    .posture-modal-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .posture-modal-title {
+        font-size: 1.2rem;
+    }
+}

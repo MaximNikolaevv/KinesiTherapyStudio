@@ -98,6 +98,16 @@
     margin: 0 0 12px;
 }
 
+.subtitle-3d-description {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 0.9rem;
+}
+
 .team-bio {
     text-align: center;
     font-size: 0.95rem;
