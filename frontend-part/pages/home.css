@@ -711,6 +711,8 @@ button:focus-visible {
 
     .footer-contact {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 20px;
     }
 
@@ -835,6 +837,30 @@ button:focus-visible {
 
     .calculator-btn {
         width: 100%;
+    }
+
+    .site-footer {
+        padding: 40px 20px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 28px
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer-hours {
+        margin-left: 20px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 32px;
     }
 
 }

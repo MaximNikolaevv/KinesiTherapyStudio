@@ -104,6 +104,7 @@ let DashboardTemplate = () => html`
             
             <article class="about-3d-intro" aria-label="Описание на 3D анатомичния модел">
                 <h2 class="title-3d-description">Интерактивният 3D анатомичен модел</h2>
+                <h3 class="subtitle-3d-description">Нашият помощник</h3>
                 <p class="about-3d-description">
                     Помага ви да разгледате основните мускулни групи и тяхната функция в реално движение.
                     Може да завъртите модела, за да видите как всеки мускул подпомага стойката, стабилността и контрола на движението в различни части на тялото.
@@ -146,10 +147,6 @@ let DashboardTemplate = () => html`
 export function AboutUs(ctx) {
     ctx.render(DashboardTemplate());
 
-    const footerYear = document.getElementById("footerYear");
-    if (footerYear) {
-        footerYear.textContent = new Date().getFullYear();
-    }
 
     const container = document.getElementById("threeDContainer");
 
@@ -161,7 +158,7 @@ export function AboutUs(ctx) {
 
     container.appendChild(renderer.domElement);
 
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight); // Set the renderer size to match the container size
 
     camera.position.set(1, 2, 4); // Set the camera position
 
@@ -223,7 +220,7 @@ export function AboutUs(ctx) {
 
     function animate() {
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(animate); // animating loop 
         renderer.render(scene, camera);
     }
 
