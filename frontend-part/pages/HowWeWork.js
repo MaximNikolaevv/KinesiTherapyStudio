@@ -5,29 +5,6 @@ import { showBadPosture, showGoodPosture, initPostureModal } from "../pages/post
 
 let DashboardTemplate = () => html`<main>
 
-<header class="header">
-<div class="header__container">
-
-            <button class="nav-toggle" id="navToggle" aria-label="Отвори менюто" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="main-nav" id="primaryNav">
-            <ul class="main-nav__list">
-                    <li><a href="/" class="main-nav__link">Начало</a></li>
-                    <li><a href="/aboutUs" class="main-nav__link">За нас</a></li>
-                    <li><a href="/uslugi" class="main-nav__link">Услуги</a></li>
-                    <li><a href="/kak-rabotim" class="main-nav__link is-current ">Как работим</a></li>
-                    <li><a href="/otzivi" class="main-nav__link">Отзиви</a></li>
-                    <li><a href="/contactUs" class="main-nav__link">Контакти</a></li>
-                    </ul>
-                    </nav>
-                    
-                    </div>
-                    </header>     
-
   <section class="process-section" id="kak-rabotim">
     <div class="process-inner">
  
@@ -149,32 +126,7 @@ let DashboardTemplate = () => html`<main>
  
 </main>
 
-  <footer class="site-footer">
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Контакти:</h3>
-                    <ul>
-                        <li><a href="tel:+359899942522">+359899942522</a></li>
-                        <li><a href="tel:+359878886816">+359878886816</a></li>
-                        <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">ул. „Здраве" 12, София</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-hours">
-                    <h3 class="footer-heading">Работно време</h3>
-                    <p class="footer-hours-text">
-                        Понеделник – Неделя<br>
-                        10:00 – 20:00
-                    </p>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; <span id="footerYear"></span> КинезиЦентър. Всички права запазени.</p>
-                    <ul>
-                        <li><a href="/uslovia">Условия за ползване</a></li>
-                        <li><a href="/poveritelnost">Поверителност</a></li>
-                    </ul>
-                </div>
-            </footer>`
+` 
 
 
 export async function HowWeWork(ctx) {

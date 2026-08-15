@@ -22,8 +22,10 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@mediapipe/tasks-vision": "^1.0.0",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "lit-html": "^3.3.3",
-    "page": "^1.11.6"
+    "mongoose": "^9.9.2",
+    "page": "^1.11.6",
+    "routes": "^2.1.0"
   }
 }

@@ -4,6 +4,7 @@ import { HomePage } from './HomePage.js';
 import { AboutUs } from './aboutUs.js';
 import { ContactUs } from './ContactUs.js';
 import { HowWeWork } from './HowWeWork.js';
+import { Feedbacks } from "./Feedbacks.js";
 
 
 
@@ -30,6 +31,6 @@ page("/", HomePage);
 page("/aboutUs", AboutUs);
 page("/contactUs", ContactUs);
 page("/kak-rabotim", HowWeWork);
-
+page("/Feedbacks", Feedbacks);
 
 page.start();
