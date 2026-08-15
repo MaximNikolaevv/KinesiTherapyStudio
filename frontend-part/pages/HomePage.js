@@ -1,30 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
 let DashboardTemplate = () => html`
-    <header class="header">
-        <div class="header__container">
-
-            <button class="nav-toggle" id="navToggle" aria-label="Отвори менюто" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="main-nav" id="primaryNav">
-                <ul class="main-nav__list">
-                    <li><a href="/" class="main-nav__link is-current">Начало</a></li>
-                    <li><a href="/aboutUs" class="main-nav__link">За нас</a></li>
-                    <li><a href="/uslugi" class="main-nav__link">Услуги</a></li>
-                    <li><a href="/kak-rabotim" class="main-nav__link">Как работим</a></li>
-                    <li><a href="/otzivi" class="main-nav__link">Отзиви</a></li>
-                    <li><a href="/contactUs" class="main-nav__link">Контакти</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
-
-   
 
         <section class="motivation-box">
             <div class="motivation-box-inner">
@@ -210,41 +186,6 @@ let DashboardTemplate = () => html`
 
 
 
-
-    <footer class="site-footer">
-
-        <div class="footer-contact">
-            <h3 class="footer-heading">Контакти:</h3>
-            <ul>
-                <li><a href="tel:+359899942522">+359899942522</a></li>
-                <li><a href="tel:+359878886816">+359878886816</a></li>
-                <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">ул. „Здраве" 12,
-                        София</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-hours">
-            <p class="footer-hours-text">
-                Работно време:<br>
-                <br>
-                Понеделник – Неделя<br>
-                10:00 – 20:00
-            </p>
-        </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; <span id="footerYear"></span> КинезиЦентър. Всички права запазени.</p>
-            <ul class="footer-heading">
-                <li><a href="/uslovia">Условия за ползване</a></li>
-                <li><a href="/poveritelnost">Поверителност</a></li>
-            </ul>
-        </div>
-
-        </div>
-
-    </footer>
 
 `;
 
