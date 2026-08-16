@@ -293,48 +293,6 @@ a {
     border-color: var(--color-accent);
 }
 
-/* ============================================
-   Motivation box
-   ============================================ */
-.motivation-box {
-    padding: 40px 32px 100px;
-    text-align: center;
-}
-
-.motivation-box-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.motivation-eyebrow {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
-    margin: 0 0 16px;
-}
-
-.motivation-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    line-height: 1.15;
-    font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    letter-spacing: -0.01em;
-}
-
-.motivation-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-ink-soft);
-    max-width: 560px;
-    margin: 0 0 40px;
-}
 
 /* ============================================
    Защо масажът е важен — статия
@@ -391,9 +349,6 @@ a {
     gap: 28px;
 }
 
-.massage-article-btn {
-    /* наследява .button.button--primary стиловете */
-}
 
 .massage-article-link {
     display: inline-flex;

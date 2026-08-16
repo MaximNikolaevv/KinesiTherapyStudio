@@ -1,18 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
-let DashboardTemplate = () => html`<!DOCTYPE html>
-<html lang="bg">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>КинезиЦентър — Кинезитерапия и рехабилитация</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="home-preview.css" />
-</head>
-<body>
-
-<main>
+let DashboardTemplate = () => html`
 
     <!-- ============================================
          Hero — снимков фон, преливащ в фона на страницата
@@ -28,27 +16,10 @@ let DashboardTemplate = () => html`<!DOCTYPE html>
             <p class="hero-photo-subtitle">
                 Професионална грижа за вашето тяло и възстановяване
             </p>
-            <a href="/zapazi-chas" class="hero-photo-cta">Запази час за преглед</a>
+            <a href="/contactUs" class="hero-photo-cta">Запази час за преглед</a>
         </div>
     </section>
 
-    <!-- ============================================
-         Motivation box
-         ============================================ -->
-    <section class="motivation-box">
-        <div class="motivation-box-inner">
-            <h2 class="motivation-eyebrow">Готови за промяна?</h2>
-            <p class="motivation-title">
-                Всяко тяло заслужава шанс да се движи без болка
-            </p>
-            <p class="motivation-text">
-                Независимо дали се възстановявате от травма, борите се с хронична болка
-                или просто искате да се чувствате по-добре в тялото си — ние сме тук,
-                за да вървим заедно с вас към възстановяването.
-            </p>
-            <a href="/zapazi-chas" class="button button--primary motivation-cta">Запази час</a>
-        </div>
-    </section>
 
     <!-- ============================================
          Защо масажът е важен — статия
@@ -97,8 +68,6 @@ let DashboardTemplate = () => html`<!DOCTYPE html>
 
         </div>
     </section>
-
-</main>
 
 </body>
 </html>`;
