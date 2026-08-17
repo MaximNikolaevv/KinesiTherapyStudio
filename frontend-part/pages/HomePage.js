@@ -53,9 +53,6 @@ let DashboardTemplate = () => html`
 
             <div class="massage-article-actions">
 
-                <a href="/kak-rabotim#kalkulator" class="button button--primary massage-article-btn">
-                    Провери своята мобилност
-                </a>
 
                 <a href="/kak-rabotim#proverka-stoika" class="massage-article-link">
                     Провери стойката си с камера
