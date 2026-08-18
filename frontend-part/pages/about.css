@@ -4,36 +4,44 @@
 }
 
 .about-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    margin-bottom: 64px;
+    padding: 60px 20px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-eyebrow {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent, #b5652a);
+    margin: 0 0 16px;
+}
+
+.about-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 500;
+    color: var(--color-ink, #1a1a1a);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+}
+
+.about-subtitle {
+    font-family: var(--font-body, sans-serif);
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+    line-height: 1.6;
+    color: var(--color-muted, #555);
+    max-width: 560px;
+    margin: 0 auto;
 }
 
 .about-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-}
-
-.about-eyebrow {
-    font-family: var(--font-body);
-    font-size: 2.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent);
-    margin: 0 0 12px;
-}
-
-.about-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(1.5rem, 3vw, 2.0rem);
-    font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 auto 12px;
-    letter-spacing: -0.01em;
-    max-width: 600px;
 }
 
 .team-grid {
@@ -154,95 +162,6 @@
     border: 1px solid rgb(206, 191, 184);
 }
 
-.site-footer {
-    display: flex;
-    background: #1F1B18;
-    color: #E8E3DE;
-    padding: 50px 50px;
-}
-
-.footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 48px;
-    justify-content: space-between;
-}
-
-.footer-heading {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #FFFFFF;
-    margin: 0 0 20px;
-}
-
-.footer-contact,
-.footer-hours {
-    flex: 1;
-    min-width: 220px;
-}
-
-.footer-contact ul,
-.footer-hours ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.footer-contact a {
-    color: #C9C2BB;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-}
-
-.footer-contact a:hover {
-    color: var(--color-accent);
-}
-
-.footer-hours-text {
-    margin: 0;
-    line-height: 1.7;
-    color: #C9C2BB;
-}
-
-.footer-bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1 1 100%;
-    min-width: 220px;
-}
-
-.footer-bottom p {
-    margin: 0;
-    color: #C9C2BB;
-}
-
-.footer-bottom ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.footer-bottom a {
-    color: #C9C2BB;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-bottom a:hover {
-    color: var(--color-accent);
-}
-
 @media (max-width: 960px) {
     .team-grid {
         gap: 40px;
@@ -293,28 +212,6 @@
         width: 100%;
         height: 260px;
     }
-
-    .site-footer {
-        padding: 40px 20px;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        gap: 28px;
-    }
-
-    .footer-contact {
-        display: flex;
-        gap: 20px;
-    }
-
-    .footer-hours {
-        margin-left: 20px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        gap: 32px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -362,31 +259,6 @@
     }
 
     .team-bio {
-        font-size: 0.88rem;
-    }
-
-    .site-footer {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 32px 16px;
-        gap: 24px;
-    }
-
-    .footer-contact {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .footer-hours {
-        margin-left: 0;
-    }
-
-    .footer-heading {
-        font-size: 0.98rem;
-        margin-bottom: 12px;
-    }
-
-    .footer-contact a {
         font-size: 0.88rem;
     }
 }

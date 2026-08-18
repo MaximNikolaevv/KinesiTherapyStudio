@@ -38,10 +38,11 @@ let DashboardTemplate = () => html`
     <section class="about-section" id="za-nas">
     <div class="about-inner">
 
-        <div class="about-header">
-            <h1 class="about-eyebrow">За нас</h1>
-            <h2 class="about-title">Хората зад вашето възстановяване</h2>
-        </div>
+      <section class="about-header">
+    <p class="about-eyebrow">ЗА НАС</p>
+    <h2 class="about-title">Хората зад вашето възстановяване</h2>
+    <p class="about-subtitle">Екип от специалисти, отдадени на вашето здраве и напредък — с грижа, опит и внимание към всеки детайл.</p>
+</section>
 
     </div>
 

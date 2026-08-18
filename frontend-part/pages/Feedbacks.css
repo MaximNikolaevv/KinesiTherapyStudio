@@ -294,46 +294,7 @@ a {
 /* ================================================================
    RESPONSIVE
    ================================================================ */
-@media (max-width: 860px) {
 
-    .nav-toggle {
-        display: flex;
-    }
-
-    .header__container {
-        padding: 16px 24px;
-    }
-
-    .main-nav__list {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        padding: 0;
-        background: var(--color-bg);
-        border-bottom: 1px solid var(--color-line);
-    }
-
-    .main-nav__list.is-open {
-        display: flex;
-        padding: 12px 24px 20px;
-    }
-
-    .main-nav__link {
-        display: block;
-        width: 100%;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--color-line);
-        text-align: left;
-    }
-
-    .main-nav__link::after {
-        display: none;
-    }
-}
 
 @media (max-width: 640px) {
 
@@ -353,23 +314,5 @@ a {
     .testimonial-card {
         flex: 1 1 100%;
         max-width: 100%;
-    }
-
-    .site-footer {
-        padding: 40px 20px;
-    }
-
-    .footer-top {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .footer-bottom ul {
-        text-align: left;
     }
 }
