@@ -550,21 +550,6 @@ button:focus-visible {
     }
 }
 
-@media (max-width: 640px) {
-    .posture-camera-controls {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .posture-start-btn {
-        width: 100%;
-    }
-
-    .posture-camera-hint {
-        max-width: none;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
 
     .posture-modal,

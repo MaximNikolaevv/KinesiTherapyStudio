@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/pages/about.css">
     <link rel="stylesheet" href="/pages/HowWeWork.css">
     <link rel="stylesheet" href="/pages/Feedbacks.css">
+    <link rel="stylesheet" href="/pages/header.css">
+    <link rel="stylesheet" href="/pages/footer.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script type="text/javascript">
@@ -25,6 +27,8 @@
     <header class="header">
         <div class="header__container">
             <button class="nav-toggle" id="navToggle" aria-label="Отвори менюто" aria-expanded="false">
+
+
                 <span></span>
                 <span></span>
                 <span></span>
@@ -32,7 +36,7 @@
 
             <nav class="main-nav" id="primaryNav">
                 <ul class="main-nav__list">
-                    <li><a href="/" class="main-nav__link">Начало</a></li>         
+                    <li><a href="/" class="main-nav__link">Начало</a></li>
                     <li><a href="/aboutUs" class="main-nav__link">За нас</a></li>
                     <li><a href="/uslugi" class="main-nav__link">Услуги</a></li>
                     <li><a href="/kak-rabotim" class="main-nav__link">Как работим</a></li>
@@ -51,7 +55,8 @@
             <ul>
                 <li><a href="tel:+359899942522">+359899942522</a></li>
                 <li><a href="tel:+359878886816">+359878886816</a></li>
-                <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">ул. „Здраве" 12, София</a></li>
+                <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">ул. „Здраве" 12,
+                        София</a></li>
             </ul>
         </div>
 
@@ -73,6 +78,34 @@
         </div>
     </footer>
     <script type="module" src="/pages/app.js"></script>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        const navItems = document.querySelectorAll('.main-nav__list li');
+
+        function toggleMenu() {
+            const isActive = navToggle.classList.toggle('is-active');
+            primaryNav.classList.toggle('is-open');
+
+            document.body.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', isActive);
+        }
+
+        function CloseMenu() {
+            navToggle.classList.remove('is-active');
+            primaryNav.classList.remove('is-open');
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        navToggle.addEventListener('click', toggleMenu);
+        navItems.forEach(item => {
+            item.addEventListener('click', CloseMenu);
+        });
+
+    </script>
 </body>
+
 
 </html>
