@@ -1,7 +1,7 @@
 let modal, modalBox, modalIcon, modalTitle, modalText, closeBtn;
 
 
-export function initPostureModal() {
+export function initPostureModal(stream) {
     modal = document.getElementById("postureModal");
     modalBox = document.getElementById("postureModalBox");
     modalIcon = document.getElementById("postureModalIcon");
@@ -25,6 +25,7 @@ export function showGoodPosture() {
         Раменете и главата Ви са добре подравнени. Продължавайте така —
         добрата стойка намалява напрежението във врата и гърба.
     `;
+
 
     openPostureModal();
 }
@@ -52,6 +53,7 @@ export function showBadPosture() {
     `;
     modalText.insertAdjacentElement("afterend", tipsList);
 
+
     openPostureModal();
 }
 
@@ -61,8 +63,10 @@ function openPostureModal() {
 
 export function closePostureModal() {
     modal.classList.remove("is-open");
-
     // чистим tips списъка, за да не се дублира при следваща "лоша" нотификация
     const tips = modalBox.querySelector(".posture-modal-tips");
     if (tips) tips.remove();
+    
 }
+
+
