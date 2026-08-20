@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import Feedback from "../module/FeedbacksModule.js";
+import Services from "../module/ServicesModule.js";
 
 
 const Controllers = Router();
@@ -22,6 +23,21 @@ Controllers.get("/testimonials", async (req, res) => {
     } catch (error) {
         console.error(error);
     }
+});
+
+
+Controllers.get("/services", async (req, res) => {
+    try {
+        const services = await Services.find({});
+
+        console.log(services);
+
+        res.json(services);
+
+    } catch (error) {
+        console.error(error);
+    }
+
 });
 
 // TODO 
