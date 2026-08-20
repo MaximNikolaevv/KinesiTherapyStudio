@@ -34,6 +34,10 @@ let DashboardTemplate = (services) => html`
 `;
 
 export async function Services(ctx) {
-    ctx.render(DashboardTemplate());
+
+    const response = await fetch(`/api/services`);
+    const services = await response.json();
+
+    ctx.render(DashboardTemplate(services));
 
 }
