@@ -126,7 +126,7 @@ let DashboardTemplate = () => html`<main>
  
 </main>
 
-` 
+`
 
 
 export async function HowWeWork(ctx) {
@@ -190,6 +190,7 @@ export async function HowWeWork(ctx) {
       videoElement.muted = true;
       videoElement.playsInline = true;
       await videoElement.play();
+
 
       loopActive = true;   // само сменяме споделената променлива
       renderLoop();          // извикваме БЕЗ аргумент
@@ -263,6 +264,25 @@ export async function HowWeWork(ctx) {
     clearTimeout(goodPostureTimer);
     badPostureTimer = null;
     goodPostureTimer = null;
+
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+
+      postureText.textContent = "Изчаква стартиране";
+      startButton.textContent = "Стартирай камерата";
+      status.classList.remove("is-live");
+
+      stream = null;
+      videoElement.srcObject = null;
+      loopActive = false;
+
+      clearTimeout(badPostureTimer);
+      clearTimeout(goodPostureTimer);
+
+      return;
+    }
+
   }
+
 }
 
