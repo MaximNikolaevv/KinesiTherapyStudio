@@ -57,6 +57,18 @@ const FILE_GROUPS = [
         image: "/img/services/VenduziTherapyPhoto.png"
     },
     {
+        title: "Кинезитерапия",
+        info: "Лечебна физкултура и функционална рехабилитация, насочена към възстановяване на движението и намаляване на болката.",
+        price: "35 € / 60 минути",
+        image: "/img/services/KinesitherapyPhoto.png"
+    },
+    {
+        title: "Частичен масаж",
+        info: "Кратка терапия, фокусирана върху една зона по избор — идеална при локално напрежение или ограничено време.",
+        price: "30 € / 30 минути",
+        image: "/img/services/PartialMassagePhoto.png"
+    },
+    {
         title: "Масаж за бременни",
         info: "Щадяща и безопасна техника, съобразена с нуждите на бременната жена — облекчава напрежение в гърба и краката.",
         price: "35 € / 60 минути",
@@ -68,18 +80,7 @@ const FILE_GROUPS = [
         price: "20 € / 30 минути",
         image: "/img/services/FaceMassagePhoto.png"
     },
-    {
-        title: "Лимфен дренаж с ботуши (Пресотерапия)",
-        info: "Компресионна терапия с ботуши за подобряване на лимфния и венозния отток, намаляваща отоци и тежест в краката.",
-        price: "10 € / 10 минути",
-        image: "/img/services/PresoTherapy.png"
-    },
-    {
-        title: "Хранителен режим",
-        info: "Индивидуално изготвен хранителен план за 1 месец, съобразен с вашите цели и начин на живот.",
-        price: "60 € / 1 месец",
-        image: "/img/services/NutritionPlanPhoto.png"
-    }
+
 ];
 
 function buildFeedbackEntries() {
