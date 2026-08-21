@@ -2,7 +2,7 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 
 let DashboardTemplate = () => html`
     <main>
-
+ 
     <!-- ============================================
              Hero — заглавие на страницата
              ============================================ -->
@@ -22,14 +22,14 @@ let DashboardTemplate = () => html`
             ============================================ -->
         <section class="contact-main">
         <div class="contact-main-inner">
-
+ 
                 <!-- Форма за контакт -->
                 <div class="contact-form-card">
                     <h2 class="contact-form-title">Изпратете съобщение</h2>
                     <p class="contact-form-intro">
                         Попълнете формата и ще се свържем с вас възможно най-скоро.
                         </p>
-
+ 
                     <form class="contact-form" id="contactForm">
                     
                     <div class="contact-field">
@@ -41,17 +41,29 @@ let DashboardTemplate = () => html`
                             <label for="phone">Телефон</label>
                             <input type="tel" id="phone" name="phone" placeholder="+359 XX XXX XXXX" required />
                             </div>
-
+ 
                             <div class="contact-field">
                             <label for="email">Имейл</label>
                             <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                            </div>
+ 
+                            <div class="contact-field">
+                            <label for="massageType">Вид масаж / Пакет от масажи </label>
+                            <select id="massageType" name="massageType" required>
+                                <option value="" disabled selected>Изберете вид масаж или пакет от масажи</option>
+                            </select>
+                            </div>
+ 
+                            <div class="contact-field">
+                            <label for="date">Предпочитана дата</label>
+                            <input type="date" id="date" name="date" required />
                             </div>
                             
                             <div class="contact-field">
                             <label for="message">Съобщение</label>
                             <textarea id="message" name="message" rows="5" placeholder="Опишете накратко въпроса или проблема си..." required></textarea>
                             </div>
-
+ 
                         <button type="submit" class="button button--primary contact-submit">
                         Изпрати съобщение
                         </button>
@@ -61,7 +73,7 @@ let DashboardTemplate = () => html`
                 
                 <!-- Контактна информация -->
                 <div class="contact-info-card">
-
+ 
                 <div class="contact-info-block">
                         <div class="contact-info-icon">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +99,7 @@ let DashboardTemplate = () => html`
                             <a href="alexxnikolaevv@abv.bg" class="contact-info-link">alexxnikolaevv@abv.bg</a>
                         </div>
                     </div>
-
+ 
                     <div class="contact-info-block">
                         <div class="contact-info-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,9 +127,9 @@ let DashboardTemplate = () => html`
                                 <p class="contact-info-text">Понеделник – Неделя<br>10:00 – 20:00</p>
                                 </div>
                                 </div>
-
+ 
                                 </div>
-
+ 
                                 </div>
                                 </section>
                                 
@@ -133,23 +145,40 @@ let DashboardTemplate = () => html`
     
     `;
 
-
-
-
-
 export function ContactUs(ctx) {
     ctx.render(DashboardTemplate());
+
+    populateMassageOptions();
 
     document.getElementById("contactForm").addEventListener("submit", (event) => {
         event.preventDefault();
         sendEmail();
     });
 
+    // ============================================
+    // Динамично зареждане на видовете масажи в select-а
+    // ============================================
+    async function populateMassageOptions() {
+        const select = document.getElementById("massageType");
+
+        const response = await fetch(`/api/services`);
+        const services = await response.json();
+
+        services.forEach(service => {
+            const option = document.createElement("option");
+            option.value = service.title;
+            option.textContent = `${service.title} — ${service.price}`;
+            select.appendChild(option);
+        });
+    }
+
     function sendEmail() {
         let params = {
             name: document.getElementById("name").value,
             phone: document.getElementById("phone").value,
             email: document.getElementById("email").value,
+            massageType: document.getElementById("massageType").value,
+            date: document.getElementById("date").value,
             message: document.getElementById("message").value
         };
 
