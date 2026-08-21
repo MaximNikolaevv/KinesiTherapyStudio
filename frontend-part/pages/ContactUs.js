@@ -1,6 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-//import { services } from "../../services.data.js"; // коригирай пътя спрямо реалната ти структура
- 
+
 let DashboardTemplate = () => html`
     <main>
  
@@ -49,9 +48,9 @@ let DashboardTemplate = () => html`
                             </div>
  
                             <div class="contact-field">
-                            <label for="massageType">Вид масаж</label>
+                            <label for="massageType">Вид масаж / Пакет от масажи </label>
                             <select id="massageType" name="massageType" required>
-                                <option value="" disabled selected>Изберете вид масаж</option>
+                                <option value="" disabled selected>Изберете вид масаж или пакет от масажи</option>
                             </select>
                             </div>
  
@@ -145,23 +144,26 @@ let DashboardTemplate = () => html`
     </main>
     
     `;
- 
+
 export function ContactUs(ctx) {
     ctx.render(DashboardTemplate());
- 
+
     populateMassageOptions();
- 
+
     document.getElementById("contactForm").addEventListener("submit", (event) => {
         event.preventDefault();
         sendEmail();
     });
- 
+
     // ============================================
     // Динамично зареждане на видовете масажи в select-а
     // ============================================
-    function populateMassageOptions() {
+    async function populateMassageOptions() {
         const select = document.getElementById("massageType");
- 
+
+        const response = await fetch(`/api/services`);
+        const services = await response.json();
+
         services.forEach(service => {
             const option = document.createElement("option");
             option.value = service.title;
@@ -169,7 +171,7 @@ export function ContactUs(ctx) {
             select.appendChild(option);
         });
     }
- 
+
     function sendEmail() {
         let params = {
             name: document.getElementById("name").value,
@@ -179,7 +181,7 @@ export function ContactUs(ctx) {
             date: document.getElementById("date").value,
             message: document.getElementById("message").value
         };
- 
+
         emailjs.send("service_lfwqigc", "template_4b82nol", params)
             .then(() => {
                 // 2. Auto-reply към клиента (нов Template ID тук)

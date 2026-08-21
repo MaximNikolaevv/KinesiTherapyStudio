@@ -7,13 +7,15 @@ let DashboardTemplate = (services) => html`
         <h2 class="uslugi-title">Терапии, съобразени с вашето тяло</h2>
         <p class="uslugi-subtitle">Всяка процедура е подбрана според вашите нужди — с грижа, опит и внимание към всеки детайл.</p>
     </div>
-
+ 
     <div class="uslugi-grid">
         ${services.map(service => html`
-            <article class="uslugi-card">
-                <div class="uslugi-card-image">
-                    <img src="${service.image}" alt="${service.title}">
-                </div>
+            <article class="uslugi-card ${service.image ? '' : 'no-image'}">
+                ${service.image ? html`
+                    <div class="uslugi-card-image">
+                        <img src="${service.image}" alt="${service.title}">
+                    </div>
+                ` : ''}
                 <div class="uslugi-card-body">
                     <h3 class="uslugi-card-title">${service.title}</h3>
                     <p class="uslugi-card-info">${service.info}</p>
@@ -31,7 +33,7 @@ let DashboardTemplate = (services) => html`
         `)}
     </div>
 </section>
-`;
+`
 
 export async function Services(ctx) {
 

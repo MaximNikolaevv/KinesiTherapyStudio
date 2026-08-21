@@ -18,7 +18,7 @@ const serviceSchema = new Schema(
         },
         image: {
             type: String,
-            required: true,
+            required: false,
         }
 
     }
