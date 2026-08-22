@@ -141,9 +141,7 @@ let DashboardTemplate = () => html`
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2936.553214520186!2d23.030256000000005!3d42.60722200000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aacac3b9817041%3A0xed10c30cdb0642df!2z0JzQvtC90YLQtSDQmtCw0YDQu9C-LCDRg9C7LiDigJ44LdC80Lgg0LzQsNGA0YLigJwgMjMxLCAyMzA2INCf0LXRgNC90LjQug!5e0!3m2!1sbg!2sbg!4v1784825979626!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
         
-    </main>
-    
-    `;
+    </main>`;
 
 export function ContactUs(ctx) {
     ctx.render(DashboardTemplate());
@@ -170,6 +168,14 @@ export function ContactUs(ctx) {
             option.textContent = `${service.title} — ${service.price}`;
             select.appendChild(option);
         });
+
+        const params = new URLSearchParams(window.location.search);
+        const service = params.get('service');
+        const DecodedService = decodeURIComponent(service);
+
+        if (service) {
+            document.getElementById('massageType').value = DecodedService;
+        }
     }
 
     function sendEmail() {

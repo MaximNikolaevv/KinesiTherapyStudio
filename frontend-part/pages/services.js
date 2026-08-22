@@ -21,7 +21,7 @@ let DashboardTemplate = (services) => html`
                     <p class="uslugi-card-info">${service.info}</p>
                     <div class="uslugi-card-footer">
                         <span class="uslugi-card-price">${service.price}</span>
-                        <a href="/contactUs" class="uslugi-card-link">
+                        <a href="/contactUs?service=${service.title}" class="uslugi-card-link">
                             Запази час
                             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
