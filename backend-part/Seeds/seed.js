@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Feedback from "./module/FeedbacksModule.js"; // провери точния relative път
+import Feedback from "../module/FeedbacksModule.js"; // провери точния relative път
 
 // Тук казваш: "този префикс на файл + колко броя = кой вид масаж"
 const FILE_GROUPS = [

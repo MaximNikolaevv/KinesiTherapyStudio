@@ -140,7 +140,20 @@ let DashboardTemplate = () => html`
              <section class="contact-map"> 
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2936.553214520186!2d23.030256000000005!3d42.60722200000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aacac3b9817041%3A0xed10c30cdb0642df!2z0JzQvtC90YLQtSDQmtCw0YDQu9C-LCDRg9C7LiDigJ44LdC80Lgg0LzQsNGA0YLigJwgMjMxLCAyMzA2INCf0LXRgNC90LjQug!5e0!3m2!1sbg!2sbg!4v1784825979626!5m2!1sbg!2sbg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
-        
+
+        <div class="contact-success-modal" id="contactSuccessModal" role="dialog" aria-modal="true" aria-labelledby="contactSuccessTitle">
+            <div class="contact-success-modal-box">
+                <button type="button" class="contact-success-modal-close" id="contactSuccessClose" aria-label="Затвори">
+                    &times;
+                </button>
+
+                <div class="contact-success-modal-icon">✓</div>
+                <h3 class="contact-success-modal-title" id="contactSuccessTitle">Съобщението е изпратено успешно</h3>
+                <p class="contact-success-modal-text">
+                    Благодарим Ви! Ще се свържем с Вас възможно най-скоро.
+                </p>
+            </div>
+        </div>
     </main>`;
 
 export function ContactUs(ctx) {
@@ -148,14 +161,18 @@ export function ContactUs(ctx) {
 
     populateMassageOptions();
 
+    const successModal = document.getElementById("contactSuccessModal");
+    const successClose = document.getElementById("contactSuccessClose");
+
+    successClose.addEventListener("click", () => {
+        successModal.classList.remove("is-open");
+    });
+
     document.getElementById("contactForm").addEventListener("submit", (event) => {
         event.preventDefault();
         sendEmail();
     });
 
-    // ============================================
-    // Динамично зареждане на видовете масажи в select-а
-    // ============================================
     async function populateMassageOptions() {
         const select = document.getElementById("massageType");
 
@@ -194,7 +211,7 @@ export function ContactUs(ctx) {
                 emailjs.send("service_lfwqigc", "template_8ffxqvd", params);
             })
             .then(() => {
-                alert("Съобщението е изпратено успешно!");
+                successModal.classList.add("is-open");
                 document.getElementById("contactForm").reset();
             })
             .catch((error) => {

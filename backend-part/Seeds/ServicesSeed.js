@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Services from "./module/ServicesModule.js";
+import Services from "../module/ServicesModule.js";
 
 const FILE_GROUPS = [
     {

@@ -267,6 +267,120 @@ textarea:focus-visible {
 }
 
 /* ============================================
+   Success notification modal
+   ============================================ */
+.contact-success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 27, 24, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.contact-success-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-success-modal-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 20px;
+    padding: 40px 32px 32px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(31, 27, 24, 0.25);
+    transform: scale(0.92) translateY(10px);
+    transition: transform 0.25s ease;
+}
+
+.contact-success-modal.is-open .contact-success-modal-box {
+    transform: scale(1) translateY(0);
+}
+
+.contact-success-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #F6F4EF;
+    color: var(--color-ink-soft);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-success-modal-close:hover {
+    background: var(--color-line);
+    color: var(--color-ink);
+}
+
+.contact-success-modal-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(74, 143, 92, 0.12);
+    color: #4A8F5C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.contact-success-modal-title {
+    margin: 0 0 12px;
+    color: #2F5B3A;
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.contact-success-modal-text {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-success-modal,
+    .contact-success-modal-box {
+        transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-success-modal-box {
+        padding: 32px 24px 24px;
+    }
+
+    .contact-success-modal-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .contact-success-modal-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
    Contact Info Card
    ============================================ */
 .contact-info-card {

@@ -5,7 +5,8 @@
 .header {
     position: sticky;
     top: 0;
-    background: var(--color-bg);
+    /* background: var(--color-bg); */
+    background: linear-gradient(135deg, #ffffff 0%, #ffe4d6 100%);
     z-index: 100;
     border-bottom: 1px solid var(--color-line);
 }
@@ -77,7 +78,7 @@
     margin-top: 0;
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 82px;
     padding: 20px 20px;
@@ -176,19 +177,18 @@
         display: flex;
     }
 
-    /* bqlata */
-
     .main-nav {
         position: fixed;
         top: 0;
         right: -100%;
         width: min(240px, 80vw);
-        height: 80vh;
+        height: 50vh;
         background: var(--color-bg);
-        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
         transition: right 0.35s ease;
         z-index: 150;
         overflow-y: auto;
+        border-left: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .main-nav.is-open {
@@ -199,7 +199,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 40px;
+        gap: 0;
         margin-top: 90px;
         padding: 0 32px;
         height: auto;
@@ -210,6 +210,11 @@
         opacity: 0;
         transform: translateX(20px);
         transition: opacity 0.3s ease, transform 0.3s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .main-nav__list li:last-of-type {
+        border-bottom: none;
     }
 
     /* появяват се едно по едно при отваряне */
@@ -226,15 +231,45 @@
     .main-nav.is-open .main-nav__list li:nth-child(6) { transition-delay: 0.33s; }
 
     .main-nav__link {
-        font-size: 1.1rem;
-        display: block;
+        font-size: 1.05rem;
+        letter-spacing: 0.03em;
+        display: flex;
+        align-items: center;
         width: 100%;
-        padding: 12px 2px;
+        padding: 16px 4px;
+        color: var(--color-text, #3a3a3a);
+        position: relative;
+        transition: color 0.25s ease, padding-left 0.25s ease;
+    }
+
+    /* малка декоративна чертичка отляво, която се появява при hover/active */
+    .main-nav__link::before {
+        content: "";
+        position: absolute;
+        left: -32px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 0;
+        background: var(--color-primary, #b98a5f);
+        transition: height 0.25s ease;
+    }
+
+    .main-nav__link:hover,
+    .main-nav__link:active {
+        color: var(--color-primary, #b98a5f);
+        padding-left: 12px;
+    }
+
+    .main-nav__link:hover::before,
+    .main-nav__link:active::before {
+        height: 22px;
     }
 
     .main-nav__cta {
-        margin: 24px 0 0;
+        margin: 28px 0 0;
         width: 100%;
+        text-align: center;
     }
 
     /* тъмен overlay зад менюто */

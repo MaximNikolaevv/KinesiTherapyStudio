@@ -1,4 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
+import page from "../../node_modules/page/page.mjs";
 import { initPoseDetector, detectPose } from "./postureDetector.js";
 import { analyzePosture } from "./AnalyzaPosture.js";
 import { showBadPosture, showGoodPosture, initPostureModal } from "../pages/postureModal.js";
@@ -98,7 +99,7 @@ let DashboardTemplate = () => html`<main>
           <p class="posture-disclaimer">
             Тази функция дава обща ориентировъчна информация и не замества
             преглед от специалист. За точна оценка на стойката,
-            <a href="">запазете час за преглед</a>. 
+            <a href="/contactUs" id="contactAppointmentLink">запазете час за преглед</a>. 
           </p>
  
         </div>
@@ -133,6 +134,11 @@ export async function HowWeWork(ctx) {
   ctx.render(DashboardTemplate());
 
   initPostureModal();
+
+  document.getElementById("contactAppointmentLink").addEventListener("click", (event) => {
+    event.preventDefault();
+    page.show("/contactUs");
+  });
 
   await initPoseDetector(); // Целта е да се зареди MediaPipe моделът за откриване на поза.
 
