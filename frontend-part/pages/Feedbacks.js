@@ -72,7 +72,7 @@ export function Feedbacks(ctx) {
     );
 
     suggestionsList.innerHTML = "";
-    activeSuggestionIndex = -1;
+
 
     if (matches.length === 0) {
       suggestionsList.innerHTML = `<li class="search-suggestions-empty">Няма съвпадения</li>`;

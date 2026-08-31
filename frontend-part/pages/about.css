@@ -12,7 +12,7 @@
 
 .about-eyebrow {
     font-family: var(--font-body, sans-serif);
-    font-size: 0.85rem;
+    font-size: 1.85rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -21,9 +21,9 @@
 }
 
 .about-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 500;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--color-ink, #1a1a1a);
     line-height: 1.15;
     letter-spacing: -0.01em;

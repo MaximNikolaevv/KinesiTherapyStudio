@@ -24,9 +24,8 @@
 }
 
 .uslugi-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2.1rem, 4.8vw, 3.3rem);
-    font-weight: 600;
+    font-size: 1.85rem;
+    font-weight: 700;
     color: var(--color-ink);
     line-height: 1.1;
     letter-spacing: -0.03em;

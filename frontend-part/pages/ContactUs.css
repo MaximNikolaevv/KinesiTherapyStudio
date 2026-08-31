@@ -100,9 +100,8 @@ select:focus-visible {
 }
 
 .contact-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    font-weight: 600;
+    font-size: 1.85rem;
+    font-weight: 700;
     color: var(--color-ink);
     margin: 0 0 18px;
     letter-spacing: -0.03em;
