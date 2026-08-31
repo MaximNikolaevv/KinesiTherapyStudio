@@ -64,9 +64,6 @@ export function Feedbacks(ctx) {
   const grid = document.getElementById("testimonialsGrid");
   const emptyMsg = document.getElementById("testimonialsEmpty");
 
-  let activeSuggestionIndex = -1;
-
-
   function renderSuggestions(query) {
     const normalizedQuery = query.trim().toLowerCase();
 
@@ -160,12 +157,12 @@ export function Feedbacks(ctx) {
   // ---------------------------------------------
   // Event listeners
   // ---------------------------------------------
-  searchInput.addEventListener("focus", () => {
+  searchInput.addEventListener("focus", () => { // focus Сработва, когато даден елемент получи фокус.
     renderSuggestions(searchInput.value);
     openSuggestions();
   });
 
-  searchInput.addEventListener("input", () => {
+  searchInput.addEventListener("input", () => { // Сработва, когато стойността на input-а се промени от потребителя.  
     const value = searchInput.value;
     clearBtn.hidden = value.length === 0;
 
@@ -184,31 +181,6 @@ export function Feedbacks(ctx) {
       emptyMsg.hidden = true;
     }
   });
-
-  searchInput.addEventListener("keydown", (e) => {
-    const items = suggestionsList.querySelectorAll("li[data-value]");
-    if (items.length === 0) return;
-
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      activeSuggestionIndex = (activeSuggestionIndex + 1) % items.length;
-      updateActiveSuggestion(items);
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      activeSuggestionIndex = (activeSuggestionIndex - 1 + items.length) % items.length;
-      updateActiveSuggestion(items);
-    } else if (e.key === "Enter" && activeSuggestionIndex >= 0) {
-      e.preventDefault();
-      selectMassageType(items[activeSuggestionIndex].dataset.value);
-    } else if (e.key === "Escape") {
-      closeSuggestions();
-    }
-  });
-
-  function updateActiveSuggestion(items) {
-    items.forEach(item => item.classList.remove("is-active"));
-    items[activeSuggestionIndex].classList.add("is-active");
-  }
 
   clearBtn.addEventListener("click", () => {
     searchInput.value = "";

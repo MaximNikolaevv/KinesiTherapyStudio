@@ -1,17 +1,20 @@
 :root {
-    --color-bg: #FFFFFF;
-    --color-ink: #1F1B18;
-    --color-ink-soft: #5C5450;
-    --color-accent: #B5651D;
-    /* оранжево-кафяв акцент */
-    --color-accent-dark: #8F4E15;
-    /* по-тъмен вариант за hover */
-    --color-line: rgba(31, 27, 24, 0.1);
+    --color-bg: #f4f7f2;
+    --color-bg-soft: #edf4ee;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f1f7f3;
+    --color-ink: #123126;
+    --color-ink-soft: #4d6259;
+    --color-accent: #2d7d5d;
+    --color-accent-dark: #1f5e43;
+    --color-accent-soft: rgba(45, 125, 93, 0.12);
+    --color-line: rgba(18, 49, 38, 0.12);
+    --shadow-soft: 0 18px 45px rgba(18, 49, 38, 0.08);
 
     --font-display: "Fraunces", serif;
     --font-body: "Inter", sans-serif;
 
-    --nav-height: 84px;
+    --nav-height: 86px;
     --max-width: 1200px;
 }
 
@@ -38,11 +41,6 @@ ul {
     padding: 0;
 }
 
-
-
-/* ============================================
-   Buttons
-   ============================================ */
 .button {
     display: inline-flex;
     align-items: center;
@@ -54,13 +52,14 @@ ul {
     border-radius: 999px;
     border: none;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     text-decoration: none;
 }
 
 .button--primary {
     background: var(--color-accent);
     color: #ffffff;
+    box-shadow: 0 12px 24px rgba(45, 125, 93, 0.18);
 }
 
 .button--primary:hover {
@@ -74,90 +73,84 @@ ul {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
 }
 
-/* ============================================
-   Contact Hero
-   ============================================ */
 .contact-hero {
-    padding: 96px 32px 64px;
-    background: linear-gradient(180deg, #FFF8F2 0%, #FFFFFF 100%);
+    padding: 100px 32px 62px;
+    background: linear-gradient(180deg, #eff6f0 0%, #f9fbf9 100%);
     text-align: center;
 }
 
 .contact-hero-inner {
-    max-width: 640px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
 .contact-eyebrow {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     color: var(--color-accent);
     margin: 0 0 16px;
 }
 
 .contact-title {
     font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 500;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 600;
     color: var(--color-ink);
-    margin: 0 0 20px;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    margin: 0 0 18px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
 }
 
 .contact-subtitle {
-    font-size: 1.02rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.8;
     color: var(--color-ink-soft);
     margin: 0;
 }
 
-/* ============================================
-   Contact Main — форма + инфо
-   ============================================ */
 .contact-main {
-    padding: 80px 32px;
+    padding: 40px 32px 88px;
     background: var(--color-bg);
 }
 
 .contact-main-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    display: flex;
-    gap: 48px;
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 28px;
     align-items: flex-start;
 }
 
-/* ============================================
-   Contact Form Card
-   ============================================ */
 .contact-form-card {
-    flex: 1.4;
-    background: #FAF7F4;
+    background: rgba(255, 255, 255, 0.82);
     border: 1px solid var(--color-line);
-    border-radius: 20px;
-    padding: 48px;
+    border-radius: 24px;
+    padding: 42px 38px;
+    box-shadow: var(--shadow-soft);
 }
 
 .contact-form-title {
     font-family: var(--font-display, "Fraunces", serif);
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 600;
     color: var(--color-ink);
     margin: 0 0 10px;
 }
 
 .contact-form-intro {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     color: var(--color-ink-soft);
-    margin: 0 0 32px;
+    margin: 0 0 30px;
+    line-height: 1.7;
 }
 
 .contact-form {
@@ -174,44 +167,41 @@ textarea:focus-visible {
 
 .contact-field label {
     font-size: 0.88rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-ink);
 }
 
 .contact-field input,
 .contact-field textarea {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    padding: 12px 16px;
-    border-radius: 10px;
+    font-size: 0.96rem;
+    padding: 13px 16px;
+    border-radius: 12px;
     border: 1px solid var(--color-line);
-    background: #FFFFFF;
+    background: #ffffff;
     color: var(--color-ink);
     resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-    color: #A79E97;
+    color: #8b9c94;
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 1px;
     border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(45, 125, 93, 0.08);
 }
 
-/* ============================================
-   Select — вид масаж
-   ============================================ */
 .contact-field select {
     font-family: var(--font-body);
-    font-size: 0.95rem;
-    padding: 12px 40px 12px 16px;
-    border-radius: 10px;
+    font-size: 0.96rem;
+    padding: 13px 40px 13px 16px;
+    border-radius: 12px;
     border: 1px solid var(--color-line);
-    background: #FFFFFF;
+    background: #ffffff;
     color: var(--color-ink);
     cursor: pointer;
     appearance: none;
@@ -221,7 +211,7 @@ textarea:focus-visible {
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 18px;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-field select:hover {
@@ -229,22 +219,18 @@ textarea:focus-visible {
 }
 
 .contact-field select:focus {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 1px;
     border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(45, 125, 93, 0.08);
 }
 
 .contact-field select:invalid {
-    color: #A79E97;
+    color: #8b9c94;
 }
 
 .contact-field select option {
     color: var(--color-ink);
 }
 
-/* ============================================
-   Date input — предпочитана дата
-   ============================================ */
 .contact-field input[type="date"] {
     cursor: pointer;
     color-scheme: light;
@@ -252,13 +238,8 @@ textarea:focus-visible {
 
 .contact-field input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
-    filter: invert(28%) sepia(23%) saturate(1074%) hue-rotate(340deg) brightness(93%) contrast(87%);
-}
-
-.contact-field input[type="date"]::-webkit-calendar-picker-indicator:hover {
-    opacity: 1;
+    opacity: 0.7;
+    filter: invert(31%) sepia(26%) saturate(1123%) hue-rotate(117deg) brightness(89%) contrast(90%);
 }
 
 .contact-submit {
@@ -266,9 +247,65 @@ textarea:focus-visible {
     margin-top: 8px;
 }
 
-/* ============================================
-   Success notification modal
-   ============================================ */
+.contact-info-card {
+    background: linear-gradient(180deg, rgba(45, 125, 93, 0.06) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 1px solid var(--color-line);
+    border-radius: 24px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-info-block {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 18px 14px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(18, 49, 38, 0.05);
+}
+
+.contact-info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.contact-info-heading {
+    margin: 0 0 6px;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-soft);
+}
+
+.contact-info-link,
+.contact-info-text {
+    display: block;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.contact-info-link:hover {
+    color: var(--color-accent-dark);
+}
+
 .contact-success-modal {
     position: fixed;
     inset: 0;
@@ -276,11 +313,107 @@ textarea:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(31, 27, 24, 0.45);
+    background: rgba(18, 49, 38, 0.42);
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
+
+.contact-success-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-success-modal-box {
+    position: relative;
+    width: min(420px, calc(100vw - 32px));
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 36px 28px 28px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-success-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: transparent;
+    color: var(--color-ink-soft);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.contact-success-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(45, 125, 93, 0.1);
+    color: var(--color-accent-dark);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.contact-success-modal-title {
+    margin: 0 0 10px;
+    color: var(--color-ink);
+    font-size: 1.5rem;
+}
+
+.contact-success-modal-text {
+    margin: 0;
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+}
+
+.contact-map {
+    max-width: var(--max-width);
+    margin: 0 auto 80px;
+    padding: 0 32px;
+}
+
+.contact-map iframe {
+    display: block;
+    width: 100%;
+    min-height: 360px;
+    border: 1px solid var(--color-line);
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 860px) {
+    .contact-main-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-hero,
+    .contact-main {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .contact-form-card {
+        padding: 26px 20px;
+    }
+
+    .contact-map {
+        padding: 0 18px;
+    }
+
+    .contact-submit {
+        width: 100%;
+    }
+}
+
 
 .contact-success-modal.is-open {
     opacity: 1;
