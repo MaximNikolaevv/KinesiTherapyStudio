@@ -69,7 +69,7 @@ let DashboardTemplate = () => html`<main>
       <h2 class="posture-title">Проверете стойката си на живо</h2>
       <p class="posture-intro">
         Включете камерата си, за да получите ориентировъчна обратна връзка за
-        стойката на раменете и врата. Обработката се случва изцяло във
+        позицията на горната част на вашето тяло. Обработката се случва изцяло във
         вашия браузър — нищо не се записва или изпраща никъде.
         За постигане на по-точни резултати застанете
         странично спрямо камерата, като се уверите, че тялото
@@ -221,7 +221,7 @@ export async function HowWeWork(ctx) {
         const landmarks = result.landmarks[0];
         const angle = analyzePosture(landmarks);
 
-        if (angle > 1.50) {
+        if (angle > 1.30) {
 
           clearTimeout(goodPostureTimer);
           goodPostureTimer = null;
@@ -234,7 +234,7 @@ export async function HowWeWork(ctx) {
             }, POSTURE_TIME);
           }
 
-        } else if (angle < 1.50) {
+        } else if (angle < 1.30) {
 
           clearTimeout(badPostureTimer);
           badPostureTimer = null;

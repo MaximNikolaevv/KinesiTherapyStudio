@@ -12,7 +12,7 @@
 
 .about-eyebrow {
     font-family: var(--font-body, sans-serif);
-    font-size: 0.85rem;
+    font-size: 1.85rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -21,9 +21,9 @@
 }
 
 .about-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 500;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--color-ink, #1a1a1a);
     line-height: 1.15;
     letter-spacing: -0.01em;
@@ -56,12 +56,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 6px;
     padding: 28px;
     background: #FAF7F4;
     border-radius: 16px;
     border: 1px solid var(--color-line);
-    height: 600px;
+    height: 700px;
     width: 450px;
 }
 
@@ -217,6 +217,13 @@
 @media (max-width: 480px) {
     .about-3d {
         margin-top: 3rem;
+    }
+
+    .team-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     #threeDContainer {

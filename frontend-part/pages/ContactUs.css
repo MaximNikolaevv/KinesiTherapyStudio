@@ -100,9 +100,8 @@ select:focus-visible {
 }
 
 .contact-title {
-    font-family: var(--font-display, "Fraunces", serif);
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
-    font-weight: 600;
+    font-size: 1.85rem;
+    font-weight: 700;
     color: var(--color-ink);
     margin: 0 0 18px;
     letter-spacing: -0.03em;
@@ -589,15 +588,19 @@ select:focus-visible {
 /* ================================================================
    RESPONSIVE — Tablet (≤ 960px)
    ================================================================ */
+/* ================================================================
+   RESPONSIVE — Tablet (≤ 960px)
+   ================================================================ */
 @media (max-width: 960px) {
 
-  
     .contact-main-inner {
         flex-direction: column;
+        width: 100%;
     }
 
     .contact-form-card {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-info-card {
@@ -618,8 +621,6 @@ select:focus-visible {
    ================================================================ */
 @media (max-width: 768px) {
 
-   
-
     .contact-hero {
         padding: 64px 20px 48px;
     }
@@ -630,22 +631,43 @@ select:focus-visible {
 
     .contact-main {
         padding: 56px 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-main-inner {
+        width: 100%;
     }
 
     .contact-form-card {
         padding: 28px 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Задължително — форма елементите да не преливат */
+    .contact-form-card input,
+    .contact-form-card select,
+    .contact-form-card textarea {
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
     }
 
     .contact-info-card {
         flex-direction: column;
+        width: 100%;
     }
 
     .contact-info-block {
         min-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-map {
         height: 300px;
+        width: 100%;
     }
 }
 
@@ -672,24 +694,39 @@ select:focus-visible {
 
     .contact-main {
         padding: 40px 16px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-form-card {
         padding: 20px 16px;
         border-radius: 16px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-form-title {
         font-size: 1.3rem;
     }
 
+    /* Бутонът трябва да е ограничен до ширината на родителя си, не повече */
     .contact-submit {
         width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+        white-space: normal; /* позволява текстът да пренесе, ако е нужно */
+    }
+
+    .contact-info-block {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 16px;
     }
 
     .contact-info-icon {
         width: 40px;
         height: 40px;
+        flex-shrink: 0;
     }
 
     .contact-info-icon svg {
