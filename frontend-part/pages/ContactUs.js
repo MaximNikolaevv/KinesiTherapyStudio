@@ -27,7 +27,7 @@ let DashboardTemplate = () => html`
                 <div class="contact-form-card">
                     <h2 class="contact-form-title">Изпратете съобщение</h2>
                     <p class="contact-form-intro">
-                        Попълнете формата и ще се свържем с вас възможно най-скоро.
+                        Попълнете формата и ще ви очакваме в нашият кабинет.
                         </p>
  
                     <form class="contact-form" id="contactForm">
