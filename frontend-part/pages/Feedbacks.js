@@ -6,7 +6,7 @@ let DashboardTemplate = () => html`
 
     <p class="testimonials-eyebrow">Отзиви</p>
     <h2 class="testimonials-title">Какво споделят нашите пациенти</h2>
-    <h3 class="testimonials-mini-title">Научи какво мислят клиентите ни за изживяването им с нас.</h3>
+    <h3 class="testimonials-mini-title">Научете какво мислят клиентите ни за преживяването си с нас.</h3>
 
     <!-- Search + dropdown -->
     <div class="testimonials-search">

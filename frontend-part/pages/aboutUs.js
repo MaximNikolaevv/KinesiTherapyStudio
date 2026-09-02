@@ -73,7 +73,7 @@ let DashboardTemplate = () => html`
             <p class="team-role">Кинезитерапевт, Основател</p>
             <p class="team-bio">
             3 години работа извън България, 5+ години опит при възстановяване на 
-            спротни травми, следоперативна рехабилитация, работа при деца с увреждания както 
+            спортни травми, следоперативна рехабилитация, работа при деца с увреждания както 
             и различни видове масаж.
             </p>
             </div>
@@ -85,14 +85,14 @@ let DashboardTemplate = () => html`
                 <h2 class="title-3d-description">Интерактивният 3D анатомичен модел</h2>
                 <h3 class="subtitle-3d-description">Нашият помощник</h3>
                 <p class="about-3d-description">
-                    Помага ви да разгледате основните мускулни групи и тяхната функция в реално движение.
-                    Може да завъртите модела, за да видите как всеки мускул подпомага стойката, стабилността и контрола на движението в различни части на тялото.
+                Помага ви да разгледате основните мускулни групи.
                 </p>
             </article>
 
             <main class="about-3d">
             <div id="threeDContainer"></div>
             </main>
+            <div id="muscleInfo" class="muscle-info"></div>
             
             </section>
 
@@ -119,28 +119,28 @@ export function AboutUs(ctx) {
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
     keyLight.position.set(5, 8, 6);
-    
+
     const BackLight = new THREE.DirectionalLight(0xffffff, 1.2);
     BackLight.position.set(-5, 8, -6);
-    
+
     scene.add(keyLight);
     scene.add(BackLight);
-    
-    
+
+
     const orbitControls = new OrbitControls(camera, renderer.domElement);
     orbitControls.update();
-    
+
     const loader = new GLTFLoader();
     loader.load(
         "/model/ecorche_-_anatomy_study.glb",
         (gltf) => {
-           const model = gltf.scene;
+            const model = gltf.scene;
             scene.add(model);
 
             const box = new THREE.Box3().setFromObject(model); // Вземаме размера на модела (Представи си, че Three.js слага невидима кутия около модела.)
             const size = box.getSize(new THREE.Vector3()); // Вземаме ширина, височина и дълбочина
             const maxDim = Math.max(size.x, size.y, size.z); // Намираме най-голямата стойност
-            
+
             if (maxDim > 0) {
                 const targetSize = 3; // Искам най-голямата страна на модела да бъде 3 единици.“
                 const scale = targetSize / maxDim; // Изчисляваме колко да го намалим/увеличим
@@ -154,24 +154,6 @@ export function AboutUs(ctx) {
             console.error("GLB load error:", error);
         }
     );
-
-    renderer.domElement.addEventListener("click", (event) => {
-
-        mouse.x = (event.clientX / container.clientWidth) * 2 - 1; // parameters where the mouse has been clicked
-
-        mouse.y = -(event.clientY / container.clientHeight) * 2 + 1; // parameters where the mouse has been clicked 
-
-        raycaster.setFromCamera(mouse, camera); // mouse показва къде върху екрана е кликнал потребителят // От тази камера, през тази позиция на екрана, накъде трябва да тръгне лъчът?“
-
-        const intersects = raycaster.intersectObjects( // „Провери дали този лъч пресича някой от тези 3D обекти.“
-            scene.children,
-            true // „Провери не само директните деца, а и техните деца, и техните деца и т.н.“
-        );
-
-        if (intersects.length > 0) {
-            console.log(intersects[0].object);
-        }
-    });
 
     window.addEventListener("resize", () => {
         camera.aspect = container.clientWidth / container.clientHeight;

@@ -11,8 +11,8 @@ let DashboardTemplate = () => html`
             <p class="contact-eyebrow">Свържете се с нас</p>
                 <h1 class="contact-title">Тук сме, за да помогнем</h1>
                 <p class="contact-subtitle">
-                    Имате въпрос за терапия, искате да запазите час, или просто
-                    искате да научите повече — пишете ни или ни се обадете.
+                    Имате въпрос за терапия, искате да запазите час или просто
+                    искате да научите повече — пишете ни или ни се обадете на посочените телефони.
                     </p>
             </div>
             </section>
@@ -27,7 +27,7 @@ let DashboardTemplate = () => html`
                 <div class="contact-form-card">
                     <h2 class="contact-form-title">Изпратете съобщение</h2>
                     <p class="contact-form-intro">
-                        Попълнете формата и ще ви очакваме в нашият кабинет.
+                        Попълнете формата и ще ви очакваме в нашия кабинет.
                         </p>
  
                     <form class="contact-form" id="contactForm">
@@ -48,7 +48,7 @@ let DashboardTemplate = () => html`
                             </div>
  
                             <div class="contact-field">
-                            <label for="massageType">Вид масаж / Пакет от масажи </label>
+                            <label for="massageType">Вид масаж / пакет от масажи</label>
                             <select id="massageType" name="massageType" required>
                                 <option value="" disabled selected>Изберете вид масаж или пакет от масажи</option>
                             </select>
