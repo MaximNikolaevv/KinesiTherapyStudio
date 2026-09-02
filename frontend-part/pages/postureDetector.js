@@ -1,6 +1,6 @@
 import {
     PoseLandmarker, // Това е AI моделът, който намира човешкото тяло. - vrushta vsichki точки на тялото, които може да се видят на изображението (landmarks)
-    FilesetResolver // Web assebly module for vision tasks - зарежда AI моделите и ги прави достъпни за използване
+    FilesetResolver // WebAssembly module for vision tasks - зарежда AI моделите и ги прави достъпни за използване
 } from "../../node_modules/@mediapipe/tasks-vision/vision_bundle.mjs";
 
 
