@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import Services from "../module/ServicesModule.js";
+
+dotenv.config();
 
 const FILE_GROUPS = [
     {
         title: "Кинезитерапия",
-        info: "Лечебна физкултура и функционална рехабилитация, насочена към възстановяване на движението и намаляване на болката.",
+        info: "Проследяване на първоизточника на проблема и изготвяне на план за решението му чрез индивидуален подход.",
         price: "35 € / 60 минути",
         image: "/img/services/KinesitherapyPhoto.png"
     },
@@ -55,18 +58,6 @@ const FILE_GROUPS = [
         info: "Вакуумна терапия с вендузи за облекчаване на мускулно напрежение и подобряване на локалната циркулация.",
         price: "10 € / 10 минути",
         image: "/img/services/VenduziTherapyPhoto.png"
-    },
-    {
-        title: "Кинезитерапия",
-        info: "Лечебна физкултура и функционална рехабилитация, насочена към възстановяване на движението и намаляване на болката.",
-        price: "35 € / 60 минути",
-        image: "/img/services/KinesitherapyPhoto.png"
-    },
-    {
-        title: "Частичен масаж",
-        info: "Кратка терапия, фокусирана върху една зона по избор — идеална при локално напрежение или ограничено време.",
-        price: "30 € / 30 минути",
-        image: "/img/services/PartialMassagePhoto.png"
     },
     {
         title: "Масаж за бременни",
@@ -150,7 +141,13 @@ function buildFeedbackEntries() {
 }
 
 async function seed() {
-    await mongoose.connect("mongodb://localhost:27017/KinesiTherapy");
+    const uri = process.env.MONGODB_URI;
+
+    if (!uri) {
+        throw new Error("MONGODB_URI не е зададен в environment variables");
+    }
+
+    await mongoose.connect(uri);
 
     const entries = buildFeedbackEntries();
 

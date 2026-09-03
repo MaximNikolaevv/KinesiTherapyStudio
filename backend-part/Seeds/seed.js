@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
-import Feedback from "../module/FeedbacksModule.js"; // провери точния relative път
+import dotenv from "dotenv";
+import Feedback from "../module/FeedbacksModule.js"
 
-// Тук казваш: "този префикс на файл + колко броя = кой вид масаж"
+dotenv.config();
+
+"този префикс на файл + колко броя = кой вид масаж"
 const FILE_GROUPS = [
     { prefix: "ABSsculpting", count: 8, massageType: "Масаж на корем (ABS SCULPTING)" },
     { prefix: "AntiCellulite", count: 4, massageType: "Антицелулитен масаж" },
@@ -28,7 +31,13 @@ function buildFeedbackEntries() {
 }
 
 async function seed() {
-    await mongoose.connect("mongodb://localhost:27017/KinesiTherapy");
+    const uri = process.env.MONGODB_URI;
+
+    if (!uri) {
+        throw new Error("MONGODB_URI не е зададен в environment variables");
+    }
+
+    await mongoose.connect(uri);
 
     const entries = buildFeedbackEntries();
 
