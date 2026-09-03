@@ -6,15 +6,19 @@
       "use": "@vercel/node",
       "config": {
         "includeFiles": [
-          "img/**",
           "model/**",
           "frontend-part/**",
           "node_modules/**"
         ]
       }
+    },
+    {
+      "src": "img/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    { "src": "/img/(.*)", "dest": "/img/$1" },
     { "src": "/(.*)", "dest": "backend-part/server.js" }
   ]
 }
