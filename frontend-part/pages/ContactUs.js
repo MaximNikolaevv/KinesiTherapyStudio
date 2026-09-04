@@ -61,7 +61,7 @@ let DashboardTemplate = () => html`
                             
                             <div class="contact-field">
                             <label for="message">Съобщение</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Опишете накратко въпроса или проблема си..." required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Опишете накратко въпроса или проблема си..."></textarea>
                             </div>
  
                         <button type="submit" class="button button--primary contact-submit">
