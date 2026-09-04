@@ -13,6 +13,15 @@ export function analyzePosture(landmarks) {
         return null;
     }
 
+    if (
+        leftShoulder.visibility < 0.8 ||
+        rightShoulder.visibility < 0.8 ||
+        leftHip.visibility < 0.8 ||
+        rightHip.visibility < 0.8
+    ) {
+        return null;
+    }
+
     const shoulderCenter = {
         x: (leftShoulder.x + rightShoulder.x) / 2,
         y: (leftShoulder.y + rightShoulder.y) / 2

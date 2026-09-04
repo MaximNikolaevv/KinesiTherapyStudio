@@ -152,7 +152,9 @@ export async function HowWeWork(ctx) {
   let animationFrameId = null;
   let badPostureTimer = null;
   let goodPostureTimer = null;
+  let postureStartTimer = null;
   const POSTURE_TIME = 4000;
+  const POSTURE_COUNTDOWN_SECONDS = 3;
 
 
   startButton.addEventListener("click", async () => {
@@ -170,6 +172,8 @@ export async function HowWeWork(ctx) {
 
       clearTimeout(badPostureTimer);
       clearTimeout(goodPostureTimer);
+      clearInterval(postureStartTimer);
+      postureStartTimer = null;
 
       return;
     }
@@ -197,9 +201,27 @@ export async function HowWeWork(ctx) {
       videoElement.playsInline = true;
       await videoElement.play();
 
+      let countdown = POSTURE_COUNTDOWN_SECONDS;
+      postureText.textContent = `Подгответе се — ${countdown}`;
 
-      loopActive = true;   // само сменяме споделената променлива
-      renderLoop();          // извикваме БЕЗ аргумент
+      // Броячът дава време на човека да заеме правилна позиция.
+      postureStartTimer = setInterval(() => {
+        countdown -= 1;
+
+        if (countdown > 0) {
+          postureText.textContent = `Подгответе се — ${countdown}`;
+          return;
+        }
+
+        clearInterval(postureStartTimer);
+        postureStartTimer = null;
+
+        if (!stream) return;
+
+        postureText.textContent = "Камерата анализира стойката ви";
+        loopActive = true;
+        renderLoop();
+      }, 1000);
 
     } catch (error) {
       console.error(error);
@@ -207,7 +229,6 @@ export async function HowWeWork(ctx) {
     }
   });
 
-  // renderLoop вече НЕ приема параметър — чете loopActive от външния scope
   function renderLoop() {
 
     if (!loopActive) return;
@@ -216,12 +237,12 @@ export async function HowWeWork(ctx) {
 
       const result = detectPose(videoElement);
 
-      if (result?.landmarks && result.landmarks.length > 0) {
+      if (result?.worldLandmarks  && result.worldLandmarks.length > 0) {
 
-        const landmarks = result.landmarks[0];
+        const landmarks = result.worldLandmarks[0];
         const angle = analyzePosture(landmarks);
 
-        if (angle > 1.30) {
+        if (angle > 4.00) {
 
           clearTimeout(goodPostureTimer);
           goodPostureTimer = null;
@@ -234,7 +255,7 @@ export async function HowWeWork(ctx) {
             }, POSTURE_TIME);
           }
 
-        } else if (angle < 1.30) {
+        } else if (angle < 4.00) {
 
           clearTimeout(badPostureTimer);
           badPostureTimer = null;
@@ -268,6 +289,8 @@ export async function HowWeWork(ctx) {
 
     clearTimeout(badPostureTimer);
     clearTimeout(goodPostureTimer);
+    clearInterval(postureStartTimer);
+    postureStartTimer = null;
     badPostureTimer = null;
     goodPostureTimer = null;
 
@@ -287,7 +310,6 @@ export async function HowWeWork(ctx) {
 
       return;
     }
-
   }
 
 }
