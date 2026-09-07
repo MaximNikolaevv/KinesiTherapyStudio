@@ -23,7 +23,7 @@ function UpdateCTX(ctx, next) {
 
 function renderer(template, root) {
     render(template, root);
-
+    document.body.classList.remove("app-loading");
 }
 
 
