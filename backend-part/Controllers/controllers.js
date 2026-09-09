@@ -9,14 +9,10 @@ const Controllers = Router();
 Controllers.get("/testimonials", async (req, res) => {
     console.log("API endpoint hit!");
     try {
-        const { type } = req.query;
-
-        console.log(type);
+        const { type } = req.query; // req.query.type sushto stava
 
         const filter = type ? { massageType: type } : {};
         const feedbacks = await Feedback.find(filter);
-
-        console.log(feedbacks);
 
         res.json(feedbacks);
 
@@ -30,8 +26,6 @@ Controllers.get("/services", async (req, res) => {
     try {
         const services = await Services.find({});
 
-        console.log(services);
-
         res.json(services);
 
     } catch (error) {
@@ -39,8 +33,6 @@ Controllers.get("/services", async (req, res) => {
     }
 
 });
-
-// TODO 
 
 export default Controllers;
 
