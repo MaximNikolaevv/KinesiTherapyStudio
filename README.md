@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to KinesiTherapyStudio — a modern web platform created for a kinesitherapy and rehabilitation studio.
+Welcome to KinesiTherapyStudio - a modern web platform created for a kinesitherapy and rehabilitation studio.
 
 The website is designed to provide visitors with an informative, interactive, and easy-to-use experience. Users can explore the studio and its specialists, browse available therapies and massage services, learn how the rehabilitation process works, read patient testimonials, contact the studio, and request an appointment.
 
