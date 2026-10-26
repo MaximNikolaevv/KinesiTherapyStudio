@@ -121,15 +121,17 @@ This technology stack provides a lightweight foundation while still allowing the
 
 Before you begin, ensure that you have met the following requirements:
 
-- You have installed the latest version of [Node.js](https://nodejs.org/)
-- You have installed npm, which is included with Node.js.
-- You have MongoDB installed and running locally.
-- You have a modern web browser such as Google Chrome.
+- **Node.js** is installed on your system.
+- **npm** is installed. npm is included with Node.js.
+- **MongoDB** is installed and running locally.
+- A modern web browser such as **Google Chrome** is installed.
 - A camera is required if you want to use the posture analysis feature.
 
-The application currently uses a local MongoDB database:
+The application currently uses the following local MongoDB database:
 
-text - mongodb://localhost:27017/KinesiTherapy
+```text
+mongodb://localhost:27017/KinesiTherapy
+```
 
 ## Installation
 
@@ -153,7 +155,7 @@ cd KinesiTherapyStudio
 npm install
 ```
 
-4. Make sure that MongoDB is installed and running locally.
+4. Make sure MongoDB is installed and running locally.
 
 The application uses the following MongoDB database:
 
@@ -179,6 +181,7 @@ http://localhost:3000
 
 Open the URL in your browser to access the application.
 
+> **Note:** `npm install` is only required when setting up the project or when the dependencies have changed. You do not need to run it every time you start the application.
 
 ## Usage
 
@@ -212,7 +215,9 @@ The backend provides REST API endpoints used by the frontend.
 
 ### Services
 
-Returns the services stored in the MongoDB database.
+The Services API returns the services stored in the MongoDB database.
+
+The Services functionality is used by:
 
 - **The Services page**
 - **The Contact/Appointment form**
@@ -220,9 +225,17 @@ Returns the services stored in the MongoDB database.
 
 ### Testimonials
 
-Returns testimonials stored in the database.
+The Testimonials API returns testimonials stored in the MongoDB database.
 
-The Feedbacks page uses this functionality to retrieve and display relevant testimonials dynamically.
+The Reviews page uses this functionality to retrieve and display relevant testimonials dynamically.
+
+The testimonial functionality also supports:
+
+- Filtering
+- Searching
+- Search suggestions
+- Keyboard navigation
+- Dynamic results
 
 ## Application Architecture
 
@@ -239,7 +252,6 @@ The frontend is responsible for:
 - Rendering the 3D anatomy model.
 - Running the posture detection system.
 - Communicating with the backend API.
-
 
 lit-html is then used to render the corresponding page templates.
 
