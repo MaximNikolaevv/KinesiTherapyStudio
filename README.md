@@ -133,25 +133,52 @@ text - mongodb://localhost:27017/KinesiTherapy
 
 ## Installation
 
-To install the project, follow these steps:
+To install and set up the project, follow these steps:
 
-1. Clone the repository: git clone https://github.com/MaximNikolaevv/KinesiTherapyStudio.git
-2. Navigate to the project directory: cd KinesiTherapyStudio
-3. Install the required dependencies: npm install
-4. Make sure that MongoDB is running locally.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/MaximNikolaevv/KinesiTherapyStudio.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd KinesiTherapyStudio
+```
+
+3. Install the required dependencies:
+
+```bash
+npm install
+```
+
+4. Make sure that MongoDB is installed and running locally.
+
+The application uses the following MongoDB database:
+
+```text
+mongodb://localhost:27017/KinesiTherapy
+```
 
 5. If necessary, populate the database using the provided seed scripts.
 
 ## Running the Application
 
-To run the application, use the development script provided in `package.json`.
+After completing the installation, start the application with:
 
-1. Navigate to the project directory: cd KinesiTherapyStudio
-2. Install the dependencies: npm install
-3. Start the application: npm run dev
-4. Open your browser and visit: http://localhost:3000
+```bash
+npm run dev
+```
 
-The Express.js server serves the frontend application, static files, images, and 3D models while also providing the backend API.
+The application should then be available at:
+
+```text
+http://localhost:3000
+```
+
+Open the URL in your browser to access the application.
+
 
 ## Usage
 
